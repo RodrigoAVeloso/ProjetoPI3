@@ -6,3 +6,6 @@ Projeto integrador 3º semestre.
 <li>Guilherme Marques Sabio</li>
 <li>Gustavo Idalgo Cernev</li>
 <li>Rodrigo Assunção Veloso</li>
+
+<h2>Professora</h2>
+<p>Claudia Bianchi Progett</p>
