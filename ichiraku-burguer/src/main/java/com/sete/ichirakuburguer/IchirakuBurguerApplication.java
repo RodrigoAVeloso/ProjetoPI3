@@ -15,6 +15,6 @@ public class IchirakuBurguerApplication {
 
 	@GetMapping("/")
 	public String index(){
-		return "Olá Mundo!\nCauê e Bera querem casar comigo ?";
+		return "Olá Mundo!";
 	}
 }
