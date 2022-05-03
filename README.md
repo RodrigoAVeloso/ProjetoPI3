@@ -1,5 +1,4 @@
-# ProjetoPI3
-Projeto integrador 3º semestre.
+# Projeto integrador 3º semestre.
 <h2>Equipe 7 火</h2>
 <h3>Integrantes</h3> 
 <li>Cauê Batista Vieira</li>
