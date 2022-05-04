@@ -1,0 +1,63 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Produto</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="produto/bootstrap.css">
+<link rel="stylesheet" href="produto/estilo.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>Novo Produto</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<form action="/novoproduto" method="post">
+				<div class="input">
+					<label class="form-label">Código</label> <input
+						class="form-control" type="text" name="codigo">
+					<div></div>
+				</div>
+
+				<div class="input">
+					<label class="form-label">Nome do Produto</label> <input
+						class="form-control" type="text" name="produtoNome">
+					<div></div>
+				</div>
+
+				<div class="input">
+					<label class="form-label">Descrição</label> <input
+						class="form-control" type="text" name="descricao">
+					<div></div>
+				</div>
+
+				<div class="input">
+					<label class="form-label">Código de barras</label> <input
+						class="form-control" type="text" name="codigoBarras">
+					<div></div>
+				</div>
+
+				<div class="input">
+					<label class="form-label">Quantidade em estoque</label> <input
+						class="form-control" type="text" name="estoque">
+					<div></div>
+				</div>
+
+				<div class="input">
+					<label class="form-label">Ativo</label> <input class="form-control"
+						type="text" name="ativo">
+					<div></div>
+				</div>
+				<button class="btn btn-primary" type="submit">Cadastrar</button>
+				<a href="/">Voltar</a>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
