@@ -1,0 +1,63 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Cadastro de Produtos</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h3>Cadastro de Produtos</h3>
+    </div>
+</div>
+
+<div class="container" style="padding-top: 40px">
+    <div class="row">
+        <form action="/novoproduto" method="post">
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Código</label>
+                    <input class="form-control" type="text" name="codigo">
+                </div>
+                <div class="col">
+                    <label class="form-label">Nome do Produto</label>
+                    <input class="form-control" type="text" name="produtoNome">
+                </div>
+            </div>
+
+            <div class="input">
+                <label class="form-label">Descrição</label>
+                <input class="form-control" type="text" name="descricao">
+                <div></div>
+            </div>
+
+            <div class="input">
+                <label class="form-label">Código de barras</label>
+                <input class="form-control" type="text" name="codigoBarras">
+                <div></div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Quantidade em estoque</label>
+                    <input class="form-control" type="text" name="estoque">
+                </div>
+
+                <div class="col">
+                    <label class="form-label">Ativo</label>
+                    <input class="form-control" type="text" name="ativo">
+                </div>
+            </div>
+
+
+            <div style="padding-top: 20px">
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
+                <a th:href="@{todosprodutos}">Voltar</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
