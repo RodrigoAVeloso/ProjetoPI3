@@ -39,4 +39,8 @@ public class ProdutoService {
         System.out.println("service: "+produtoDtoList.toString());
         return produtoDtoList;
     }
+
+    public void deletarProdiuto(Integer codigo){
+        produtoRepository.deleteById(codigo);
+    }
 }

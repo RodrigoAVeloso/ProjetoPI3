@@ -32,7 +32,8 @@
         <td th:text="${item.ativo}">@mdo</td>
         <td ><a href="#">Detalhes</a></td>
         <td ><a href="#">Editar</a></td>
-        <td ><a href="#">Excluir</a></td>
+        <td ><a th:href="@{/excluirproduto(codigo=${item.Codigo})}" class="btn btn-danger ml-2">Delete</a></td>
+
     </tr>
 
     </tbody>
