@@ -1,36 +1,20 @@
-package br.com.projetopi3.ichirakuburguer.data.usuario;
+package br.com.projetopi3.ichirakuburguer.dto.usuario;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Table(name = "FUNCIONARIO")
-public class UsuarioEntity {
+@Component
+public class UsuarioDto {
 	
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	private String nome;
 	
-
-	@Column
-	private String nome;	
-	
-	@Column
 	private String email;
 	
-	@Column
 	private String usuario;
 	
-	@Column
 	private String senha;
 	
-	@Column
 	private boolean administrador;
 	
 	public Integer getId() {
@@ -80,8 +64,6 @@ public class UsuarioEntity {
 	public void setAdministrador(boolean administrador) {
 		this.administrador = administrador;
 	}
-	
-	
-	
+
 	
 }
