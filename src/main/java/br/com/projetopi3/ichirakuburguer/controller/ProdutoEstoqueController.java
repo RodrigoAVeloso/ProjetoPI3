@@ -16,7 +16,6 @@ import br.com.projetopi3.ichirakuburguer.dto.produto.ProdutoEstoqueDto;
 import br.com.projetopi3.ichirakuburguer.service.ProdutoEstoqueService;
 
 @Controller
-@RequestMapping(value = "/produtos")
 public class ProdutoEstoqueController {
 
     @Autowired

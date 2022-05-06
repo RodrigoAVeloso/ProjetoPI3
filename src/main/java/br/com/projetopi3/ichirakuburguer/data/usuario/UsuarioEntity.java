@@ -2,8 +2,6 @@ package br.com.projetopi3.ichirakuburguer.data.usuario;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,11 +11,9 @@ public class UsuarioEntity {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
 	private Integer id;
 	
-	
-
 	@Column
 	private String nome;	
 	
@@ -31,7 +27,7 @@ public class UsuarioEntity {
 	private String senha;
 	
 	@Column
-	private boolean administrador;
+	private Boolean administrador;
 	
 	public Integer getId() {
 		return id;

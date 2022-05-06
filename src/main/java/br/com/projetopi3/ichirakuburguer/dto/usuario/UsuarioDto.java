@@ -15,7 +15,7 @@ public class UsuarioDto {
 	
 	private String senha;
 	
-	private boolean administrador;
+	private Boolean administrador;
 	
 	public Integer getId() {
 		return id;
