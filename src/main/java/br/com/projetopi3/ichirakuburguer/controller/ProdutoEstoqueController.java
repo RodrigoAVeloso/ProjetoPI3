@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.projetopi3.ichirakuburguer.dto.produto.ProdutoDto;
-import br.com.projetopi3.ichirakuburguer.service.ProdutoService;
+import br.com.projetopi3.ichirakuburguer.dto.produto.ProdutoEstoqueDto;
+import br.com.projetopi3.ichirakuburguer.service.ProdutoEstoqueService;
 
 @Controller
 @RequestMapping(value = "/produtos")
-public class ProdutoController {
+public class ProdutoEstoqueController {
 
     @Autowired
-    ProdutoService service;
+    ProdutoEstoqueService service;
 
     @GetMapping("/todosprodutos")
     public ModelAndView todosProdutos(ModelMap model) {
-        List<ProdutoDto> produtos = service.pegarTodos();
+        List<ProdutoEstoqueDto> produtos = service.pegarTodos();
         ModelAndView mv = new ModelAndView("produto/listaprodutos");
         System.out.println(produtos.toString());
         mv.addObject("produtos", produtos);
@@ -41,7 +41,7 @@ public class ProdutoController {
 
 
     @PostMapping("/novoproduto")
-    public String novoProduto(ProdutoDto produto){
+    public String novoProduto(ProdutoEstoqueDto produto){
         System.out.println();
         System.out.println(produto);
         service.salvaProduto(produto);

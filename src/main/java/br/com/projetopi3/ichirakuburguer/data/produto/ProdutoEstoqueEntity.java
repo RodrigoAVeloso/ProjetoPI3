@@ -1,20 +1,31 @@
-package br.com.projetopi3.ichirakuburguer.dto.produto;
+package br.com.projetopi3.ichirakuburguer.data.produto;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
-public class ProdutoDto {
+@Entity
+@Table(name = "PRODUTO_ESTOQUE")
+public class ProdutoEstoqueEntity {
 
+    @Id
+    @Column
     private Integer codigo;
 
+    @Column
     private String produtoNome;
 
+    @Column
     private String descricao;
 
+    @Column
     private Long codigoBarras;
 
+    @Column
     private Float estoque;
 
+    @Column
     private Boolean ativo;
 
     public Integer getCodigo() {
@@ -49,7 +60,6 @@ public class ProdutoDto {
         this.codigoBarras = codigoBarras;
     }
 
-
     public Float getEstoque() {
         return estoque;
     }
@@ -68,7 +78,7 @@ public class ProdutoDto {
 
     @Override
     public String toString() {
-        return "ProdutoDto{" +
+        return "ProdutoEntity{" +
                 "codigo=" + codigo +
                 ", produtoNome='" + produtoNome + '\'' +
                 ", descricao='" + descricao + '\'' +
