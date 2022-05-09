@@ -2,33 +2,34 @@ package br.com.projetopi3.ichirakuburguer.data.usuario;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "FUNCIONARIO")
 public class UsuarioEntity {
-	
-	
+
 	@Id
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column
-	private String nome;	
-	
-	@Column
+
+	@Column(nullable = false, length = 50)
+	private String nome;
+
+	@Column(nullable = false, length = 75)
 	private String email;
-	
-	@Column
+
+	@Column(nullable = false, length = 20)
 	private String usuario;
-	
-	@Column
+
+	@Column(nullable = false, length = 30)
 	private String senha;
-	
-	@Column
+
+	@Column(nullable = false)
 	private Boolean administrador;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -76,8 +77,5 @@ public class UsuarioEntity {
 	public void setAdministrador(boolean administrador) {
 		this.administrador = administrador;
 	}
-	
-	
-	
-	
+
 }

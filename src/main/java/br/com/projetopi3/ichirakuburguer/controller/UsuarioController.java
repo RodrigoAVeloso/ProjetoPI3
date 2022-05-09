@@ -41,6 +41,6 @@ public class UsuarioController {
 	 @GetMapping("/excluirusuario")
 	    public String excluiProduto(@RequestParam Integer id){
 	        service.deletarUsuario(id);
-	        return "redirect:/todosprodutos";
+	        return "redirect:/todosfuncionarios";
 	    }
 }

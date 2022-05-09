@@ -16,7 +16,6 @@
         <th scope="col">Descrição</th>
         <th scope="col">Código de Barras</th>
         <th scope="col">Total em Estoque</th>
-        <th scope="col">Ativo</th>
         <th scope="col"></th>
         <th scope="col"></th>
         <th scope="col"></th>
@@ -29,7 +28,6 @@
         <td th:text="${item.descricao}">@mdo</td>
         <td th:text="${item.codigoBarras}">@mdo</td>
         <td th:text="${item.estoque}">@mdo</td>
-        <td th:text="${item.ativo}">@mdo</td>
         <td ><a href="#">Detalhes</a></td>
         <td ><a href="#">Editar</a></td>
         <td ><a th:href="@{/excluirproduto(codigo=${item.Codigo})}" class="btn btn-danger ml-2">Delete</a></td>
@@ -39,7 +37,8 @@
     </tbody>
 </table>
 
-<a th:href="@{novoproduto}" style="margin-left: 20px;">Novo produto</a>
+<a th:href="@{novoproduto}" style="margin-left: 20px;" class="btn btn-primary">Novo produto</a>
+<a th:href="@{/}" style="margin-left: 20px;" class="btn btn-primary">Menu</a>
 
 </body>
 </html>

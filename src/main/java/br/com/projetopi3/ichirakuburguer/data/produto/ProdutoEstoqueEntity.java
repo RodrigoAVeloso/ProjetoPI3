@@ -10,23 +10,20 @@ import javax.persistence.Table;
 public class ProdutoEstoqueEntity {
 
     @Id
-    @Column
+    @Column(nullable = false)
     private Integer codigo;
 
-    @Column
+    @Column(nullable = false)
     private String produtoNome;
 
-    @Column
+    @Column(nullable = false)
     private String descricao;
 
-    @Column
+    @Column(nullable = false)
     private Long codigoBarras;
 
-    @Column
+    @Column(nullable = false)
     private Float estoque;
-
-    @Column
-    private Boolean ativo;
 
     public Integer getCodigo() {
         return codigo;
@@ -68,13 +65,6 @@ public class ProdutoEstoqueEntity {
         this.estoque = estoque;
     }
 
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
-    }
 
     @Override
     public String toString() {
@@ -84,7 +74,6 @@ public class ProdutoEstoqueEntity {
                 ", descricao='" + descricao + '\'' +
                 ", codigoBarras=" + codigoBarras +
                 ", estoque=" + estoque +
-                ", ativo=" + ativo +
                 '}';
     }
 }

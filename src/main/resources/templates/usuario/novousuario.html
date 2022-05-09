@@ -17,10 +17,6 @@
         <form action="/novofuncionario" method="post">
             <div class="row">
                 <div class="col">
-                    <label class="form-label">ID</label>
-                    <input class="form-control" type="text" name="id">
-                </div>
-                <div class="col">
                     <label class="form-label">Nome</label>
                     <input class="form-control" type="text" name="nome">
                 </div>
@@ -34,19 +30,22 @@
 
             <div class="input">
                 <label class="form-label">usuario</label>
-                <input class="form-control" type="text" name="codigoBarras">
+                <input class="form-control" type="text" name="usuario">
                 <div></div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label class="form-label">senha</label>
-                    <input class="form-control" type="text" name="estoque">
+                    <input class="form-control" type="password" name="senha">
                 </div>
 
-                <div class="col">
+                <div class="mb-3">
                     <label class="form-label">administrador</label>
-                    <input class="form-control" type="text" name="administrador">
+                    <select class="form-control" name="administrador">
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                    </select>
                 </div>
             </div>
 

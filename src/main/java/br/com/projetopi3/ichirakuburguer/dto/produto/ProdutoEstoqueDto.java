@@ -15,8 +15,6 @@ public class ProdutoEstoqueDto {
 
     private Float estoque;
 
-    private Boolean ativo;
-
     public Integer getCodigo() {
         return codigo;
     }
@@ -58,14 +56,6 @@ public class ProdutoEstoqueDto {
         this.estoque = estoque;
     }
 
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
-    }
-
     @Override
     public String toString() {
         return "ProdutoDto{" +
@@ -74,7 +64,6 @@ public class ProdutoEstoqueDto {
                 ", descricao='" + descricao + '\'' +
                 ", codigoBarras=" + codigoBarras +
                 ", estoque=" + estoque +
-                ", ativo=" + ativo +
                 '}';
     }
 }
