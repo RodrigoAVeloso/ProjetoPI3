@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.projetopi3.ichirakuburguer.dto.usuario.UsuarioDto;
+import br.com.projetopi3.ichirakuburguer.dto.LoginDto;
+import br.com.projetopi3.ichirakuburguer.dto.UsuarioDto;
+import br.com.projetopi3.ichirakuburguer.service.LoginService;
 import br.com.projetopi3.ichirakuburguer.service.UsuarioService;
 
 @Controller
@@ -17,6 +19,9 @@ public class UsuarioController {
 	
 	@Autowired
 	UsuarioService service;
+	
+	@Autowired
+	LoginService serviceL;
 	
 	@GetMapping("/todosfuncionarios")
 	public ModelAndView todosUsuarios(){
@@ -34,6 +39,10 @@ public class UsuarioController {
 	
 	@PostMapping("/novofuncionario")
 	public String novoUsuario(UsuarioDto usuario) {
+		LoginDto login = new LoginDto();
+		login.setUsuario(usuario.getUsuario());
+		login.setSenha(usuario.getSenha());
+		serviceL.salvarLogin(login);
 		service.salvaFuncionario(usuario);
 		return "redirect:/todosfuncionarios";
 	}

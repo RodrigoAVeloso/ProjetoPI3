@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.projetopi3.ichirakuburguer.data.usuario.UsuarioEntity;
-import br.com.projetopi3.ichirakuburguer.dto.usuario.UsuarioDto;
+import br.com.projetopi3.ichirakuburguer.data.UsuarioEntity;
+import br.com.projetopi3.ichirakuburguer.dto.UsuarioDto;
 import br.com.projetopi3.ichirakuburguer.repository.UsuarioRepository;
 
 @Service

@@ -1,15 +1,16 @@
 package br.com.projetopi3.ichirakuburguer.service;
 
-import br.com.projetopi3.ichirakuburguer.data.produto.ProdutoEstoqueEntity;
-import br.com.projetopi3.ichirakuburguer.repository.ProdutoEstoqueRepository;
-import br.com.projetopi3.ichirakuburguer.dto.produto.ProdutoEstoqueDto;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import br.com.projetopi3.ichirakuburguer.data.ProdutoEstoqueEntity;
+import br.com.projetopi3.ichirakuburguer.dto.ProdutoEstoqueDto;
+import br.com.projetopi3.ichirakuburguer.repository.ProdutoEstoqueRepository;
 
 @Service
 public class ProdutoEstoqueService {
@@ -40,7 +41,7 @@ public class ProdutoEstoqueService {
         return produtoDtoList;
     }
 
-    public void deletarProdiuto(Integer codigo){
+    public void deletarProduto(Integer codigo){
         repository.deleteById(codigo);
     }
 }

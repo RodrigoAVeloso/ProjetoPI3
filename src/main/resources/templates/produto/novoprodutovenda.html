@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Cadastro de Produtos</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h3>Cadastro de Produtos</h3>
+		</div>
+	</div>
+
+	<div class="container" style="padding-top: 40px">
+		<div class="row">
+			<form action="/novoproduto" method="post">
+				<div class="row">
+					<div class="col">
+						<label class="form-label">Código</label> <input
+							class="form-control" type="text" name="codigo">
+					</div>
+					<div class="col">
+						<label class="form-label">Nome do Produto</label> <input
+							class="form-control" type="text" name="nome">
+					</div>
+				</div>
+
+				<div class="input">
+					<label class="form-label">Descrição</label> <input
+						class="form-control" type="text" name="descricao">
+					<div></div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<label class="form-label">preco</label> <input
+							class="form-control" type="text" name="preco">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col">
+						<label class="form-label">Produto do estoque</label> <input
+							class="form-control" type="text" name="produtoEstoque" multiple>
+					</div>
+				</div>
+
+				 <!-- <div>
+					<div class="row" >
+						<label class="form-label">Produtos do estoque</label> <select
+							class="form-select" name="produtoEstoque" multiple >
+							<option th:each="item : ${produto}" th:text="${item.produtoNome}" th:value="${item.codigo}"></option>
+						</select>
+					</div>
+				</div>  -->
+
+				<div style="padding-top: 20px">
+					<button class="btn btn-primary" type="submit">Cadastrar</button>
+					<a th:href="@{todosprodutos}" class="btn btn-primary">Voltar</a>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

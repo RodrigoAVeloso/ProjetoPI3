@@ -1,4 +1,4 @@
-package br.com.projetopi3.ichirakuburguer.data.produto;
+package br.com.projetopi3.ichirakuburguer.data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PRODUTO_ESTOQUE")
+@Table(name = "tb_estoque")
 public class ProdutoEstoqueEntity {
 
     @Id
@@ -17,14 +17,11 @@ public class ProdutoEstoqueEntity {
     private String produtoNome;
 
     @Column(nullable = false)
-    private String descricao;
-
+    private int qtd;
+    
     @Column(nullable = false)
-    private Long codigoBarras;
-
-    @Column(nullable = false)
-    private Float estoque;
-
+    private double preco;
+    
     public Integer getCodigo() {
         return codigo;
     }
@@ -41,39 +38,28 @@ public class ProdutoEstoqueEntity {
         this.produtoNome = produtoNome;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
+    public int getQtd() {
+		return qtd;
+	}
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+	public void setQtd(int qtd) {
+		this.qtd = qtd;
+	}
 
-    public Long getCodigoBarras() {
-        return codigoBarras;
-    }
+	public double getPreco() {
+		return preco;
+	}
 
-    public void setCodigoBarras(Long codigoBarras) {
-        this.codigoBarras = codigoBarras;
-    }
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
 
-    public Float getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Float estoque) {
-        this.estoque = estoque;
-    }
-
-
-    @Override
+	@Override
     public String toString() {
         return "ProdutoEntity{" +
                 "codigo=" + codigo +
                 ", produtoNome='" + produtoNome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", codigoBarras=" + codigoBarras +
-                ", estoque=" + estoque +
+                ", estoqueQtd=" + qtd +
                 '}';
     }
 }

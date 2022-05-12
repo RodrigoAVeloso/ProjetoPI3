@@ -8,8 +8,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import br.com.projetopi3.ichirakuburguer.data.produtoVenda.ProdutoVendaEntity;
-import br.com.projetopi3.ichirakuburguer.dto.produtoVenda.ProdutoVendaDto;
+import br.com.projetopi3.ichirakuburguer.data.ProdutoVendaEntity;
+import br.com.projetopi3.ichirakuburguer.dto.ProdutoVendaDto;
 import br.com.projetopi3.ichirakuburguer.repository.ProdutoVendaRepository;
 
 @Service
@@ -34,5 +34,10 @@ public class ProdutoVendaService {
 			listaProdutosDto.add(dto);
 		}
 		return listaProdutosDto;
+	}
+	
+	@Transactional
+	public void deletarProduto(Integer codigo) {
+		repository.deleteById(codigo);
 	}
 }

@@ -12,41 +12,48 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetopi3.ichirakuburguer.dto.ProdutoEstoqueDto;
+import br.com.projetopi3.ichirakuburguer.dto.ProdutoVendaDto;
 import br.com.projetopi3.ichirakuburguer.service.ProdutoEstoqueService;
+import br.com.projetopi3.ichirakuburguer.service.ProdutoVendaService;
 
 @Controller
-public class ProdutoEstoqueController {
+public class ProdutoVendaController {
 
     @Autowired(required = true)
-    ProdutoEstoqueService service;
+    ProdutoVendaService service;
+    
+    @Autowired(required = true)
+    ProdutoEstoqueService servicePe;
 
-    @GetMapping("/todosprodutos")
+    @GetMapping("/todosprodutosvenda")
     public ModelAndView todosProdutos(ModelMap model) {
-        List<ProdutoEstoqueDto> produtos = service.pegarTodos();
-        ModelAndView mv = new ModelAndView("produto/listaprodutos");
+        List<ProdutoVendaDto> produtos = service.todosProdutos();
+        ModelAndView mv = new ModelAndView("produto/listaprodutosvenda");
         System.out.println(produtos.toString());
         mv.addObject("produtos", produtos);
+       
 
         return mv;
     }
 
 
-    @GetMapping("/novoproduto")
+    @GetMapping("/novoprodutovenda")
     public ModelAndView criaProduto(){
-        ModelAndView mv = new ModelAndView("produto/novoproduto");
+    	List<ProdutoEstoqueDto> produtosEstoque = servicePe.pegarTodos();
+        ModelAndView mv = new ModelAndView("produto/novoprodutovenda");
+        mv.addObject("produto", produtosEstoque);
        return mv;
     }
 
 
-    @PostMapping("/novoproduto")
-    public String novoProduto(ProdutoEstoqueDto produto){
-        
-        service.salvaProduto(produto);
+    @PostMapping("/novoprodutovenda")
+    public String novoProduto(ProdutoVendaDto produto){
+        service.salvarProduto(produto);
         System.out.println();
         return "redirect:/todosprodutos";
     }
 
-    @GetMapping("/excluirproduto")
+    @GetMapping("/excluirprodutovenda")
     public String excluiProduto(@RequestParam Integer codigo){
         service.deletarProduto(codigo);
         return "redirect:/todosprodutos";

@@ -1,7 +1,8 @@
 package br.com.projetopi3.ichirakuburguer.repository;
 
-import br.com.projetopi3.ichirakuburguer.data.produto.ProdutoEstoqueEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.projetopi3.ichirakuburguer.data.ProdutoEstoqueEntity;
 
 
 public interface ProdutoEstoqueRepository extends JpaRepository<ProdutoEstoqueEntity, Integer> {

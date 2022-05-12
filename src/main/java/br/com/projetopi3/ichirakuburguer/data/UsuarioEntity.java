@@ -1,22 +1,35 @@
-package br.com.projetopi3.ichirakuburguer.dto.usuario;
+package br.com.projetopi3.ichirakuburguer.data;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
-public class UsuarioDto {
-	
+@Entity
+@Table(name = "tb_funcionario")
+public class UsuarioEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
+	@Column(nullable = false, length = 50)
 	private String nome;
-	
+
+	@Column(nullable = false, length = 75)
 	private String email;
-	
+
+	@Column(nullable = false, length = 20)
 	private String usuario;
-	
+
+	@Column(nullable = false, length = 30)
 	private String senha;
-	
+
+	@Column(nullable = false)
 	private Boolean administrador;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -65,5 +78,4 @@ public class UsuarioDto {
 		this.administrador = administrador;
 	}
 
-	
 }
