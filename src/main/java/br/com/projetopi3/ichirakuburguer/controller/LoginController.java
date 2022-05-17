@@ -22,7 +22,7 @@ public class LoginController {
 	@Autowired
 	LoginService service;
 	
-	@GetMapping("/login")
+	@GetMapping("/")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView("login.html");
 		return mv;

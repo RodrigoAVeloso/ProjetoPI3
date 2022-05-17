@@ -1,64 +1,70 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragmento :: head('Novo Usuários')}"></head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <h3>Cadastro de Usuários</h3>
-    </div>
-</div>
+	<header th:replace="~{fragmento :: header('Cadastro de produtos')}"></header>
 
-<div class="container" style="padding-top: 40px">
-    <div class="row">
-        <form th:object="${usuarioDto}" action="/funcionarios/novo" method="post">
-        
-            <div class="row">
-                <div class="col">
-                    <label class="form-label">Nome</label>
-                    <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{nome}">
-                    <div class="invalid-feedback" th:errors="*{nome}"></div>
-                </div>
-            </div>
+	<div class="container">
+		<div class="row">
+			<h3>Cadastro de Usuários</h3>
+		</div>
+	</div>
 
-            <div class="input">
-                <label class="form-label">email</label>
-                <input class="form-control" th:errorclass="is-invalid" type="email" th:field="*{email}">
-               <div class="invalid-feedback" th:errors="*{email}"></div>
-            </div>
+	<div class="container" style="padding-top: 40px">
+		<div class="row">
+			<form th:object="${usuarioDto}" action="/funcionarios/novo"
+				method="post">
 
-            <div class="input">
-                <label class="form-label">usuario</label>
-                <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{usuario}">
-                <div class="invalid-feedback" th:errors="*{usuario}"></div>
-            </div>
+				<div class="row">
+					<div class="col">
+						<label class="form-label">Nome</label> <input class="form-control"
+							th:errorclass="is-invalid" type="text" th:field="*{nome}">
+						<div class="invalid-feedback" th:errors="*{nome}"></div>
+					</div>
+				</div>
 
-            <div class="row">
-                <div class="col">
-                    <label class="form-label">senha</label>
-                    <input class="form-control" th:errorclass="is-invalid" type="password" th:field="*{senha}">
-                    <div class="invalid-feedback" th:errors="*{senha}"></div>
-                </div>
-			</div>
-			
-                 <div class="mb-3">
-                    <label class="form-label">administrador</label>
-                    <select class="form-control" name="Administrador">
-                    <option th:value="true">Sim</option>
-                    <option th:value="false">Não</option>
-                    </select>
-                </div> 
-            
-           
+				<div class="input">
+					<label class="form-label">email</label> <input class="form-control"
+						th:errorclass="is-invalid" type="email" th:field="*{email}">
+					<div class="invalid-feedback" th:errors="*{email}"></div>
+				</div>
+
+				<div class="input">
+					<label class="form-label">usuario</label> <input
+						class="form-control" th:errorclass="is-invalid" type="text"
+						th:field="*{usuario}">
+					<div class="invalid-feedback" th:errors="*{usuario}"></div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<label class="form-label">senha</label> <input
+							class="form-control" th:errorclass="is-invalid" type="password"
+							th:field="*{senha}">
+						<div class="invalid-feedback" th:errors="*{senha}"></div>
+					</div>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label">administrador</label> <select
+						class="form-control" name="Administrador">
+						<option th:value="true">Sim</option>
+						<option th:value="false">Não</option>
+					</select>
+				</div>
 
 
-            <div style="padding-top: 20px">
-                <button class="btn btn-primary" type="submit">Cadastrar</button>
-                <a class="btn btn-primary" th:href="@{todos}">Voltar</a>
-            </div>
 
-        </form>
-    </div>
-</div>
+
+				<div style="padding-top: 20px">
+					<button class="btn btn-primary" type="submit">Cadastrar</button>
+					<a class="btn btn-primary" th:href="@{todos}">Voltar</a>
+				</div>
+
+			</form>
+		</div>
+	</div>
 </body>
 </html>

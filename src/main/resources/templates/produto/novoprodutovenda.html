@@ -18,46 +18,35 @@
 
 	<div class="container" style="padding-top: 40px">
 		<div class="row">
-			<form action="/novoproduto" method="post">
+			<form th:object="${produtoVendaDto}" action="/produtos/novo/venda" method="post">
 				<div class="row">
-					<div class="col">
-						<label class="form-label">Código</label> <input
-							class="form-control" type="text" name="codigo">
-					</div>
+					
+					
 					<div class="col">
 						<label class="form-label">Nome do Produto</label> <input
-							class="form-control" type="text" name="nome">
+							class="form-control" type="text" th:field="*{nome}">
 					</div>
 				</div>
 
 				<div class="input">
 					<label class="form-label">Descrição</label> <input
-						class="form-control" type="text" name="descricao">
+						class="form-control" type="text" th:field="*{descricao}">
 					<div></div>
 				</div>
 
 				<div class="row">
 					<div class="col">
 						<label class="form-label">preco</label> <input
-							class="form-control" type="text" name="preco">
+							class="form-control" type="text" th:field="*{preco}">
 					</div>
 				</div>
 				
-				<div class="row">
+				 <div class="row">
 					<div class="col">
 						<label class="form-label">Produto do estoque</label> <input
-							class="form-control" type="text" name="produtoEstoque" multiple>
+							class="form-control" type="checkbox"th:field="*{produtoEstoque}" multiple>
 					</div>
 				</div>
-
-				 <!-- <div>
-					<div class="row" >
-						<label class="form-label">Produtos do estoque</label> <select
-							class="form-select" name="produtoEstoque" multiple >
-							<option th:each="item : ${produto}" th:text="${item.produtoNome}" th:value="${item.codigo}"></option>
-						</select>
-					</div>
-				</div>  -->
 
 				<div style="padding-top: 20px">
 					<button class="btn btn-primary" type="submit">Cadastrar</button>

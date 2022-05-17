@@ -11,35 +11,39 @@
 
 <div class="container" style="padding-top: 40px">
     <div class="row">
-        <form action="/produtos/novo" method="post">
+        <form th:object="${produtoEstoqueDto}" action="/produtos/novo" method="post">
             <div class="row">
                 <div class="col">
                     <label class="form-label">Código</label>
-                    <input class="form-control" type="text" name="codigo">
+                    <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{codigo}">
+                    <div class="invalid-feedback" th:errors="*{codigo}"></div>
                 </div>
                 <div class="col">
                     <label class="form-label">Nome do Produto</label>
-                    <input class="form-control" type="text" name="produtoNome">
+                    <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{produtoNome}">
+                    <div class="invalid-feedback" th:errors="*{produtoNome}"></div>
                 </div>
             </div>
 
             <div class="input">
                 <label class="form-label">Quantidade</label>
-                <input class="form-control" type="text" name="qtd">
+                <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{qtd}">
+                <div class="invalid-feedback" th:errors="*{qtd}"></div>
                 <div></div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label class="form-label">Custo</label>
-                    <input class="form-control" type="text" name="preco">
+                    <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{preco}">
+                    <div class="invalid-feedback" th:errors="*{preco}"></div>
                 </div>
             </div>
 
 
             <div style="padding-top: 20px">
                 <button class="btn btn-primary" type="submit">Cadastrar</button>
-                <a th:href="@{todosprodutos}"  class="btn btn-primary">Voltar</a>
+                <a th:href="@{/produtos/todos}"  class="btn btn-primary">Voltar</a>
             </div>
 
         </form>

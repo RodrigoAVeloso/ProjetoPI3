@@ -1,16 +1,27 @@
 package br.com.projetopi3.ichirakuburguer.dto;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProdutoEstoqueDto {
-
+	
+	@NotNull
     private Integer codigo;
-
+    
+    @NotBlank
     private String produtoNome;
-
+    
+    @NotNull
+    @Min(1)
     private int qtd;
-
+    
+    @NotNull
+    @DecimalMin ("0.50")
     private double preco;
 
 	public Integer getCodigo() {
@@ -43,6 +54,12 @@ public class ProdutoEstoqueDto {
 
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+
+	@Override
+	public String toString() {
+		return "ProdutoEstoqueDto [codigo=" + codigo + ", produtoNome=" + produtoNome + ", qtd=" + qtd + ", preco="
+				+ preco + "]";
 	}
 
 }

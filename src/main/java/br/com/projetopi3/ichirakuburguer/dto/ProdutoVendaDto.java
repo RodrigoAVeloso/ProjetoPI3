@@ -2,13 +2,25 @@ package br.com.projetopi3.ichirakuburguer.dto;
 
 import java.util.List;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class ProdutoVendaDto {
 	
 	private Integer codigo;
+	
+	@NotBlank
 	private String nome;
+	
+	@NotBlank
 	private String descricao;
+	
+	@NotNull
+	@DecimalMin ("1.00")
 	private float preco;
 	
+	@NotNull
 	private List<ProdutoEstoqueDto> produtoEstoqueDto;
 
 	public Integer getCodigo() {
@@ -49,6 +61,12 @@ public class ProdutoVendaDto {
 	
 	public List<ProdutoEstoqueDto> getProdutoEstoque(){
 		return produtoEstoqueDto;
+	}
+
+	@Override
+	public String toString() {
+		return "ProdutoVendaDto [codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco
+				+ ", produtoEstoqueDto=" + produtoEstoqueDto + "]";
 	}
 	
 	
