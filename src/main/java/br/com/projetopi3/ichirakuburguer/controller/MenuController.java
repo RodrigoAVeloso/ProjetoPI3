@@ -6,12 +6,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MenuController {
-
-	@GetMapping("/login")
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView("login.html");
-		return mv;
-	}
 	
 	@GetMapping("/menu")
 	public ModelAndView menu() {

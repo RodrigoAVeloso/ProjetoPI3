@@ -1,5 +1,9 @@
 package br.com.projetopi3.ichirakuburguer.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -7,14 +11,23 @@ public class UsuarioDto {
 	
 	private Integer id;
 	
+	@NotNull
+	@NotBlank
 	private String nome;
 	
+	@NotNull
+	@NotBlank
 	private String email;
 	
+	@NotNull
+	@Size(min=2, max=30)
 	private String usuario;
 	
+	@NotNull
+	@Size(min=4, max=30)
 	private String senha;
 	
+	@NotNull
 	private Boolean administrador;
 	
 	public Integer getId() {
@@ -63,6 +76,12 @@ public class UsuarioDto {
 
 	public void setAdministrador(boolean administrador) {
 		this.administrador = administrador;
+	}
+
+	@Override
+	public String toString() {
+		return "UsuarioDto [id=" + id + ", nome=" + nome + ", email=" + email + ", usuario=" + usuario + ", senha="
+				+ senha + ", administrador=" + administrador + "]";
 	}
 
 	

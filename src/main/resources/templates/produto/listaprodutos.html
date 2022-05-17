@@ -1,10 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Lista de Produtos</title>
-</head>
+<head th:replace="~{fragmento :: head}"></head>
 <body>
 <div class="container">  
 <h4 style="margin-left: 20px;">Lista de Produtos</h4>
@@ -33,7 +29,7 @@
 </table>
 
 <a th:href="@{novoproduto}" style="margin-left: 20px;" class="btn btn-primary">Novo produto</a>
-<a th:href="@{/}" style="margin-left: 20px;" class="btn btn-primary">Menu</a>
+<a th:href="@{/menu}" style="margin-left: 20px;" class="btn btn-primary">Menu</a>
 </div>
 
 </body>

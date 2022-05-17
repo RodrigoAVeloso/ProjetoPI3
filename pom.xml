@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.8-SNAPSHOT</version>
+		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.projetopi3</groupId>
@@ -14,57 +14,59 @@
 	<name>ichirakuburguer</name>
 	<description># Projeto integrador 3º semestre. Centro Universitário Senac. &lt;h2&gt;Equipe 7 火&lt;/h2&gt; &lt;h3&gt;Integrantes&lt;/h3&gt;  &lt;li&gt;Cauê Batista Vieira&lt;/li&gt; &lt;li&gt;Guilherme Marques Sabio&lt;/li&gt; &lt;li&gt;Gustavo Idalgo Cernev&lt;/li&gt; &lt;li&gt;Rodrigo Assunção Veloso&lt;/li&gt;  &lt;h2&gt;Professora&lt;/h2&gt; &lt;p&gt;Claudia Bianchi Progett&lt;/p&gt;   &lt;h1&gt;O Projeto&lt;/h1&gt; &lt;p&gt;O projeto consiste em criar um PDV (Ponto de vendas) de alimentos, no caso do nosso projeto é focado em uma hamburgueria.&lt;/p&gt; &lt;p&gt;Ele precisa ter um login com 2 tipos de acesso, o de funcionario que tem acesso basico, apenas para a realização das vendas, e o de Gerente que terá todas as funcionalidades do acesso de funcionario e podera inserir novos funcionarios e novos produtos no estoque, alterar as informações dos produtos como preço, nome e etc.&lt;/p&gt; &lt;p&gt;O sistea deve poder adicionar novos produtos, funcionarios e realizar pedidos, podendo alterar as informações dos funcionarios e dos pedidos, assim como excluir funcionarios do sistema, produtos, e também cancelar o pedido.&lt;/p&gt;</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!--<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>-->
-		<!--<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>-->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->			
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -->	
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>

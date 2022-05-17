@@ -14,16 +14,16 @@ public class UsuarioEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+	
 	@Column(nullable = false, length = 50)
 	private String nome;
 
 	@Column(nullable = false, length = 75)
 	private String email;
-
+	
 	@Column(nullable = false, length = 20)
 	private String usuario;
-
+	
 	@Column(nullable = false, length = 30)
 	private String senha;
 

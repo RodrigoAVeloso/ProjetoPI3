@@ -14,45 +14,50 @@
 
 <div class="container" style="padding-top: 40px">
     <div class="row">
-        <form action="/novofuncionario" method="post">
+        <form th:object="${usuarioDto}" action="/funcionarios/novo" method="post">
+        
             <div class="row">
                 <div class="col">
                     <label class="form-label">Nome</label>
-                    <input class="form-control" type="text" name="nome">
+                    <input class="form-control" th:errorclass="is-invalid" type="text" Th:field="*{nome}">
+                    <div class="invalid-feedback" Th:errors="*{nome}"></div>
                 </div>
             </div>
 
             <div class="input">
                 <label class="form-label">email</label>
-                <input class="form-control" type="text" name="email">
-                <div></div>
+                <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{email}">
+               <div class="invalid-feedback" Th:errors="*{email}"></div>
             </div>
 
             <div class="input">
                 <label class="form-label">usuario</label>
-                <input class="form-control" type="text" name="usuario">
-                <div></div>
+                <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{usuario}">
+                <div class="invalid-feedback" Th:errors="*{usuario}"></div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label class="form-label">senha</label>
-                    <input class="form-control" type="password" name="senha">
+                    <input class="form-control" th:errorclass="is-invalid" type="password" th:field="*{senha}">
+                    <div class="invalid-feedback" Th:errors="*{senha}"></div>
                 </div>
-
-                <div class="mb-3">
+			</div>
+			
+                 <div class="mb-3">
                     <label class="form-label">administrador</label>
-                    <select class="form-control" name="administrador">
-                    <option value="true">Sim</option>
-                    <option value="false">Não</option>
+                    <select class="form-control" name="Administrador">
+                    <option Th:value="true">Sim</option>
+                    <option Th:value="false">Não</option>
                     </select>
-                </div>
-            </div>
+                </div> 
+            
+           
 
 
             <div style="padding-top: 20px">
                 <button class="btn btn-primary" type="submit">Cadastrar</button>
-                <a th:href="@{todosfuncionarios}">Voltar</a>
+                <a class="btn btn-primary" th:href="@{todos}">Voltar</a>
             </div>
 
         </form>
