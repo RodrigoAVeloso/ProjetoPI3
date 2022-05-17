@@ -1,14 +1,11 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Cadastro de Produtos</title>
-</head>
+<head th:replace="~{fragmento :: head('Novo Usuários')}"></head>
 <body>
+
 <div class="container">
     <div class="row">
-        <h3>Cadastro de Produtos</h3>
+        <h3>Cadastro de Usuários</h3>
     </div>
 </div>
 
@@ -19,36 +16,36 @@
             <div class="row">
                 <div class="col">
                     <label class="form-label">Nome</label>
-                    <input class="form-control" th:errorclass="is-invalid" type="text" Th:field="*{nome}">
-                    <div class="invalid-feedback" Th:errors="*{nome}"></div>
+                    <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{nome}">
+                    <div class="invalid-feedback" th:errors="*{nome}"></div>
                 </div>
             </div>
 
             <div class="input">
                 <label class="form-label">email</label>
-                <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{email}">
-               <div class="invalid-feedback" Th:errors="*{email}"></div>
+                <input class="form-control" th:errorclass="is-invalid" type="email" th:field="*{email}">
+               <div class="invalid-feedback" th:errors="*{email}"></div>
             </div>
 
             <div class="input">
                 <label class="form-label">usuario</label>
                 <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{usuario}">
-                <div class="invalid-feedback" Th:errors="*{usuario}"></div>
+                <div class="invalid-feedback" th:errors="*{usuario}"></div>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label class="form-label">senha</label>
                     <input class="form-control" th:errorclass="is-invalid" type="password" th:field="*{senha}">
-                    <div class="invalid-feedback" Th:errors="*{senha}"></div>
+                    <div class="invalid-feedback" th:errors="*{senha}"></div>
                 </div>
 			</div>
 			
                  <div class="mb-3">
                     <label class="form-label">administrador</label>
                     <select class="form-control" name="Administrador">
-                    <option Th:value="true">Sim</option>
-                    <option Th:value="false">Não</option>
+                    <option th:value="true">Sim</option>
+                    <option th:value="false">Não</option>
                     </select>
                 </div> 
             

@@ -1,23 +1,17 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-<title>Menu</title>
-</head>
+<head th:replace="~{fragmento :: head('Menu')}"></head>
 <body>
-
+<header th:replace="~{fragmento :: header('Menu')}"></header>
+	
 	<div>
 		<div class="container">
-			<h1>menu</h1>
+			
 
-			<a th:href="@{todosprodutos}" style="margin-left: 20px;"
+			<a th:href="@{produtos/todos}" style="margin-left: 5px;"
 				class="btn btn-primary">Produtos</a> <a
-				th:href="@{funcionarios/todos}" style="margin-left: 20px;"
+				th:href="@{funcionarios/todos}" style="margin-left: 55px;"
 				class="btn btn-primary">Funcionarios</a>
 		</div>
 	</div>

@@ -1,9 +1,10 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragmento :: head}"></head>
+<head th:replace="~{fragmento :: head('Lista de Produtos')}"></head>
 <body>
+<header th:replace="~{fragmento :: header('Lista de produtos')}"></header>
 <div class="container">  
-<h4 style="margin-left: 20px;">Lista de Produtos</h4>
+
 
 <table class="table" style="width: 90%; margin-left: 20px;">
     <thead>
@@ -28,7 +29,7 @@
     </tbody>
 </table>
 
-<a th:href="@{novoproduto}" style="margin-left: 20px;" class="btn btn-primary">Novo produto</a>
+<a th:href="@{novo}" style="margin-left: 20px;" class="btn btn-primary">Novo produto</a>
 <a th:href="@{/menu}" style="margin-left: 20px;" class="btn btn-primary">Menu</a>
 </div>
 

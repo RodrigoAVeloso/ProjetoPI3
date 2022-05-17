@@ -1,20 +1,17 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Cadastro de Produtos</title>
-</head>
+<head th:replace="~{fragmento :: head('Produtos')}"></head>
 <body>
+<header th:replace="~{fragmento :: header('Cadastro de produtos')}"></header>
 <div class="container">
     <div class="row">
-        <h3>Cadastro de Produtos</h3>
+
     </div>
 </div>
 
 <div class="container" style="padding-top: 40px">
     <div class="row">
-        <form action="/novoproduto" method="post">
+        <form action="/produtos/novo" method="post">
             <div class="row">
                 <div class="col">
                     <label class="form-label">Código</label>

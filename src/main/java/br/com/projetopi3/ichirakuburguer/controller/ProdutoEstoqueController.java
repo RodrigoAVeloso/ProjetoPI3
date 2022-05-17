@@ -20,7 +20,7 @@ public class ProdutoEstoqueController {
     @Autowired(required = true)
     ProdutoEstoqueService service;
 
-    @GetMapping("/todosprodutos")
+    @GetMapping("/produtos/todos")
     public ModelAndView todosProdutos(ModelMap model) {
         List<ProdutoEstoqueDto> produtos = service.pegarTodos();
         ModelAndView mv = new ModelAndView("produto/listaprodutos");
@@ -31,24 +31,24 @@ public class ProdutoEstoqueController {
     }
 
 
-    @GetMapping("/novoproduto")
+    @GetMapping("/produtos/novo")
     public ModelAndView criaProduto(){
         ModelAndView mv = new ModelAndView("produto/novoproduto");
        return mv;
     }
 
 
-    @PostMapping("/novoproduto")
+    @PostMapping("/produtos/novo")
     public String novoProduto(ProdutoEstoqueDto produto){
         
         service.salvaProduto(produto);
         System.out.println();
-        return "redirect:/todosprodutos";
+        return "redirect:/produtos/todos";
     }
 
     @GetMapping("/excluirproduto")
     public String excluiProduto(@RequestParam Integer codigo){
         service.deletarProduto(codigo);
-        return "redirect:/todosprodutos";
+        return "redirect:/produtos/todos";
     }
 }
