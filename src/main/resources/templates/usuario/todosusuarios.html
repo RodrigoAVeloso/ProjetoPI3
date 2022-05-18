@@ -3,37 +3,39 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragmento :: head('Todos funcionáriosw')}"></head>
 <body>
-	<header th:replace="~{fragmento :: header('Todos os funcionários')}"></header>
+	<div class="container2">
+		<header th:replace="~{fragmento :: header('Todos os funcionários')}"></header>
 
-	<div class="container">
-		<table class="table" style="width: 90%; margin-left: 20px;">
-			<thead>
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Nome</th>
-					<th scope="col">E-Mail</th>
-					<th scope="col">Administrador</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="funcionario : ${usuarios}">
-					<th scope="row" th:text="${funcionario.id}">1</th>
-					<td th:text="${funcionario.nome}">Otto</td>
-					<td th:text="${funcionario.email}">@mdo</td>
-					<td th:text="${funcionario.administrador}">@mdo</td>
-					<td><a href="#">Detalhes</a></td>
-					<td><a href="#">Editar</a></td>
-					<td><a th:href="@{/excluirusuario(id=${funcionario.id})}"
-						class="btn btn-danger ml-2">Delete</a></td>
+		<div class="container">
+			<table class="table" style="width: 90%; margin-left: 20px;">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nome</th>
+						<th scope="col">E-Mail</th>
+						<th scope="col">Administrador</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="funcionario : ${usuarios}">
+						<th scope="row" th:text="${funcionario.id}">1</th>
+						<td th:text="${funcionario.nome}">Otto</td>
+						<td th:text="${funcionario.email}">@mdo</td>
+						<td th:text="${funcionario.administrador}">@mdo</td>
+						<td><a href="#">Detalhes</a></td>
+						<td><a href="#">Editar</a></td>
+						<td><a th:href="@{/excluirusuario(id=${funcionario.id})}"
+							class="btn btn-danger ml-2">Delete</a></td>
 
-				</tr>
+					</tr>
 
-			</tbody>
-		</table>
+				</tbody>
+			</table>
 
-		<a th:href="@{novo}" style="margin-left: 20px;"
-			class="btn btn-primary">Adicionar novo usuario</a> <a
-			th:href="@{/menu}" class="btn btn-primary">Menu</a>
+			<a th:href="@{novo}" style="margin-left: 20px;"
+				class="btn btn-primary">Adicionar novo usuario</a> <a
+				th:href="@{/menu}" class="btn btn-primary">Menu</a>
+		</div>
 	</div>
 </body>
 </html>
