@@ -20,8 +20,7 @@ public class ProdutoVendaDto {
 	@DecimalMin ("1.00")
 	private float preco;
 	
-	@NotNull
-	private List<ProdutoEstoqueDto> produtoEstoqueDto;
+	private List<ProdutoEstoqueDto> produtoEstoqueList;
 
 	public Integer getCodigo() {
 		return codigo;
@@ -55,18 +54,18 @@ public class ProdutoVendaDto {
 		this.preco = preco;
 	}
 
-	public void setProdutoEstoque(ProdutoEstoqueDto produtoEstoque) {
-		this.produtoEstoqueDto.add(produtoEstoque);
+	public void setProdutoEstoqueList(ProdutoEstoqueDto produtoEstoqueDto) {
+		this.produtoEstoqueList.add(produtoEstoqueDto);
 	}
 	
-	public List<ProdutoEstoqueDto> getProdutoEstoque(){
-		return produtoEstoqueDto;
+	public List<ProdutoEstoqueDto> getProdutoEstoqueList(){
+		return produtoEstoqueList;
 	}
 
 	@Override
 	public String toString() {
-		return "ProdutoVendaDto [codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco
-				+ ", produtoEstoqueDto=" + produtoEstoqueDto + "]";
+		return "Nome=" + nome + ", descricao=" + descricao + ", preco=" + preco
+				+ ", produtoEstoqueDto=" + produtoEstoqueList + "]";
 	}
 	
 	

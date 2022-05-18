@@ -4,16 +4,29 @@
 <head th:replace="~{fragmento :: head('Menu')}"></head>
 <body>
 <header th:replace="~{fragmento :: header('Menu')}"></header>
-	
-	<div>
+
+	<main>
+		<div class="container mt-4">
+			<div class="list-group">
+			<button type="button" class="list-group-item list-group-item-action"
+			th:onclick="'window.location.href=\'/estoque/todos\''">Estoque</button>
+			<button type="button" class="list-group-item list-group-item-action"
+			th:onclick="'window.location.href=\'/funcionarios/todos\''">Funcionários</button>
+			<button type="button" class="list-group-item list-group-item-action"
+			th:onclick="'window.location.href=\'/produtos/todos\''">Produtos</button>
+			</div>
+		</div>
+	</main>
+
+	<!-- <div>
 		<div class="container">
 			
 
-			<a th:href="@{produtos/todos}" style="margin-left: 5px;"
-				class="btn btn-primary">Produtos</a> <a
+			<a th:href="@{estoque/todos}" style="margin-left: 5px;"
+				class="btn btn-primary">Produtos Estoque</a> <a
 				th:href="@{funcionarios/todos}" style="margin-left: 55px;"
 				class="btn btn-primary">Funcionarios</a>
 		</div>
-	</div>
+	</div> -->
 </body>
 </html>

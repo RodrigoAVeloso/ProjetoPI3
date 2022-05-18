@@ -28,7 +28,7 @@ public class ProdutoVendaEntity {
 	private float preco;
 
 	@ManyToMany
-	List <ProdutoEstoqueEntity> produtoEstoque;
+	List <ProdutoEstoqueEntity> produtoEstoqueList;
 
 	public Integer getCodigo() {
 		return codigo;
@@ -62,12 +62,12 @@ public class ProdutoVendaEntity {
 		this.preco = preco;
 	}
 
-	public void setProdutoEstoque(ProdutoEstoqueEntity produtoEstoque) {
-		this.produtoEstoque.add(produtoEstoque);
+	public void setProdutoEstoqueList(ProdutoEstoqueEntity produtoEstoqueEntity) {
+		this.produtoEstoqueList.add(produtoEstoqueEntity);
 	}
 	
-	public List<ProdutoEstoqueEntity> getProdutoEstoque(){
-		return produtoEstoque;
+	public List<ProdutoEstoqueEntity> getProdutoEstoqueList(){
+		return produtoEstoqueList;
 	}
 
 }

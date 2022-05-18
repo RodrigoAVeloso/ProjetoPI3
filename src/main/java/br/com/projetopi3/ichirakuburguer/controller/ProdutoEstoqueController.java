@@ -23,10 +23,10 @@ public class ProdutoEstoqueController {
     @Autowired(required = true)
     ProdutoEstoqueService service;
 
-    @GetMapping("/produtos/todos")
+    @GetMapping("/estoque/todos")
     public ModelAndView todosProdutos(ModelMap model) {
         List<ProdutoEstoqueDto> produtos = service.pegarTodos();
-        ModelAndView mv = new ModelAndView("produto/listaprodutos");
+        ModelAndView mv = new ModelAndView("produto/estoque/listaestoque");
         System.out.println(produtos.toString());
         mv.addObject("produtos", produtos);
 
@@ -34,28 +34,28 @@ public class ProdutoEstoqueController {
     }
 
 
-    @GetMapping("/produtos/novo")
+    @GetMapping("/estoque/novo")
     public ModelAndView criaProduto(ProdutoEstoqueDto produto){
-        ModelAndView mv = new ModelAndView("produto/novoproduto");
+        ModelAndView mv = new ModelAndView("produto/estoque/novoproduto");
        return mv;
     }
 
 
-    @PostMapping("/produtos/novo")
+    @PostMapping("/estoque/novo")
     public ModelAndView novoProduto(@Valid ProdutoEstoqueDto produto, BindingResult br){
     	System.out.println(produto);
         if(br.hasErrors()) {
-        	ModelAndView mv = new ModelAndView("produto/novoproduto");
+        	ModelAndView mv = new ModelAndView("produto/estoque/novoproduto");
         	return mv;
         }
         service.salvaProduto(produto);
         System.out.println();
-        return new ModelAndView("redirect:/produtos/todos");
+        return new ModelAndView("redirect:/estoque/todos");
     }
 
     @GetMapping("/excluirproduto")
     public String excluiProduto(@RequestParam Integer codigo){
         service.deletarProduto(codigo);
-        return "redirect:/produtos/todos";
+        return "redirect:/estoque/todos";
     }
 }

@@ -18,7 +18,7 @@
 
 	<div class="container" style="padding-top: 40px">
 		<div class="row">
-			<form th:object="${produtoVendaDto}" action="/produtos/novo/venda" method="post">
+			<form th:object="${produtoVendaDto}" action="/produtos/novo" method="post">
 				<div class="row">
 					
 					
@@ -40,17 +40,10 @@
 							class="form-control" type="text" th:field="*{preco}">
 					</div>
 				</div>
-				
-				 <div class="row">
-					<div class="col">
-						<label class="form-label">Produto do estoque</label> <input
-							class="form-control" type="checkbox"th:field="*{produtoEstoque}" multiple>
-					</div>
-				</div>
 
 				<div style="padding-top: 20px">
 					<button class="btn btn-primary" type="submit">Cadastrar</button>
-					<a th:href="@{todosprodutos}" class="btn btn-primary">Voltar</a>
+					<a th:href="@{produtos/produto}" class="btn btn-primary">Voltar</a>
 				</div>
 
 			</form>

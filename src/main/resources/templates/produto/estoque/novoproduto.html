@@ -11,7 +11,7 @@
 
 <div class="container" style="padding-top: 40px">
     <div class="row">
-        <form th:object="${produtoEstoqueDto}" action="/produtos/novo" method="post">
+        <form th:object="${produtoEstoqueDto}" action="/estoque/novo" method="post">
             <div class="row">
                 <div class="col">
                     <label class="form-label">Código</label>
@@ -43,7 +43,7 @@
 
             <div style="padding-top: 20px">
                 <button class="btn btn-primary" type="submit">Cadastrar</button>
-                <a th:href="@{/produtos/todos}"  class="btn btn-primary">Voltar</a>
+                <a th:href="@{/estoque/todos}"  class="btn btn-primary">Voltar</a>
             </div>
 
         </form>

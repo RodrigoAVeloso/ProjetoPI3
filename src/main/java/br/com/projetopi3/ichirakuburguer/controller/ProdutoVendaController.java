@@ -28,10 +28,10 @@ public class ProdutoVendaController {
     @Autowired(required = true)
     ProdutoEstoqueService servicePe;
 
-    @GetMapping("/produtos/todos/venda")
+    @GetMapping("/produtos/todos")
     public ModelAndView todosProdutos(ModelMap model) {
         List<ProdutoVendaDto> produtos = service.todosProdutos();
-        ModelAndView mv = new ModelAndView("produto/listaprodutosvenda");
+        ModelAndView mv = new ModelAndView("produto/venda/listaprodutos");
         System.out.println(produtos.toString());
         mv.addObject("produtos", produtos);
        
@@ -40,27 +40,27 @@ public class ProdutoVendaController {
     }
 
 
-    @GetMapping("/produtos/novo/venda")
+    @GetMapping("/produtos/novo")
     public ModelAndView criaProduto(ProdutoVendaDto produto, ProdutoEstoqueDto produtoDto){
     	List<ProdutoEstoqueDto> produtosEstoque = servicePe.pegarTodos();
-        ModelAndView mv = new ModelAndView("produto/novoprodutovenda");
+        ModelAndView mv = new ModelAndView("produto/venda/novoprodutovenda");
         mv.addObject("produtosEstoque", produtosEstoque);
        return mv;
     }
 
 
-    @PostMapping("/produtos/novo/venda")
+    @PostMapping("/produtos/novo")
     public ModelAndView novoProduto(@Valid ProdutoVendaDto produto, BindingResult br, ProdutoEstoqueDto produtoDto){
     	System.out.println(produto);
     	if (br.hasErrors()) {
-			ModelAndView mv = new ModelAndView("produto/novoprodutovenda");
+			ModelAndView mv = new ModelAndView("produto/venda/novoprodutovenda");
 			
 			return mv;
 		}
     	
         service.salvarProduto(produto);
         System.out.println();
-        return new ModelAndView("redirect:/todosprodutos");
+        return new ModelAndView("redirect:/produtos/todos");
     }
 
     @GetMapping("/excluirprodutovenda")
