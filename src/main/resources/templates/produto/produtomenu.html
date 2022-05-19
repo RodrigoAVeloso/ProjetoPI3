@@ -4,15 +4,15 @@
 <head th:replace="~{fragmento :: head('Menu')}"></head>
 <body>
 	<div class="container2">
-	<header th:replace="~{fragmento :: header('Menu')}"></header>
+	<header th:replace="~{fragmento :: header('Produtos')}"></header>
 	<main>
 
 		<div class="container mt-4">
 			<div class="list-group">
 				<button type="button" class="list-group-item list-group-item-action"
-					th:onclick="'window.location.href=\'/funcionarios/todos\''">Funcionários</button>
+					th:onclick="'window.location.href=\'/estoque/todos\''">Estoque</button>
 				<button type="button" class="list-group-item list-group-item-action"
-					th:onclick="'window.location.href=\'/produtos\''">Produtos</button>
+					th:onclick="'window.location.href=\'/produtos/todos\''">Produtos</button>
 			</div>
 		</div>
 

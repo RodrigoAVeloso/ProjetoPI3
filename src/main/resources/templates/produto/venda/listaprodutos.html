@@ -4,7 +4,16 @@
 <head th:replace="~{fragmento :: head('Lista de Produtos')}"></head>
 <body>
 	<div class="container2">
-		<header th:replace="~{fragmento :: header('Lista de produtos')}"></header>
+	
+		<div class="container mt-3">
+			<div class="row">
+				<div class="col-12">
+					<h1>Ichiraku</h1>
+					<h2>Cadastro de produto</h2>
+				</div>
+			</div>
+		</div>
+		
 		<div class="container">
 
 
@@ -30,8 +39,8 @@
 			</table>
 
 			<a th:href="@{novo}" style="margin-left: 20px;"
-				class="btn btn-primary">Novo produto</a> <a th:href="@{/menu}"
-				style="margin-left: 20px;" class="btn btn-primary">Menu</a>
+				class="btn btn-primary">Novo produto</a> <a th:href="@{/produtos}"
+				style="margin-left: 20px;" class="btn btn-primary">Voltar</a>
 		</div>
 	</div>
 </body>

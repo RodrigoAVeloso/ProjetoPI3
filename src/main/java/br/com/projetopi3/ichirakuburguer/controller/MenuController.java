@@ -13,5 +13,11 @@ public class MenuController {
 		return mv;
 	}
 	
+	@GetMapping("/produtos")
+	public ModelAndView menuProduto() {
+		ModelAndView mv = new ModelAndView("produto/produtomenu.html");
+		return mv;
+	}
+	
 	
 }
