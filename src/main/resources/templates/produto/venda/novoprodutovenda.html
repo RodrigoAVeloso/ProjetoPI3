@@ -23,20 +23,23 @@
 
 						<div class="col">
 							<label class="form-label">Nome do Produto</label> <input
-								class="form-control" type="text" th:field="*{nome}">
+								class="form-control" type="text" th:errorclass="is-invalid" th:field="*{nome}">
+								<div class="invalid-feedback" th:errors="*{nome}"></div>
 						</div>
 					</div>
 
 					<div class="input">
 						<label class="form-label">Descrição</label> <input
-							class="form-control" type="text" th:field="*{descricao}">
+							class="form-control" type="text" th:errorclass="is-invalid" th:field="*{descricao}">
+							<div class="invalid-feedback" th:errors="*{descricao}"></div>
 						<div></div>
 					</div>
 
 					<div class="row">
 						<div class="col">
 							<label class="form-label">preco</label> <input
-								class="form-control" type="text" th:field="*{preco}">
+								class="form-control" type="text" th:errorclass="is-invalid" th:field="*{preco}">
+								<div class="invalid-feedback" th:errors="*{preco}"></div>
 						</div>
 					</div>
 

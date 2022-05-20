@@ -15,6 +15,9 @@ public class LoginDto {
 	@Size(min=4, max=30)
 	private String senha;
 	
+	@NotNull
+	private boolean admin;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -32,5 +35,11 @@ public class LoginDto {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public boolean isAdmin() {
+		return admin;
+	}
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 }

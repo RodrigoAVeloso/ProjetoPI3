@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -16,16 +15,17 @@ public class LoginEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@NotNull
+		
 	@Size(min=2, max=30)
-	@Column
+	@Column(nullable = false)
 	private String usuario;
 	
-	@NotNull
 	@Size(min=4, max=30)
-	@Column
+	@Column(nullable = false)
 	private String senha;
+	
+	@Column(nullable = false)
+	private boolean admin;
 
 	public Integer getId() {
 		return id;
@@ -49,5 +49,13 @@ public class LoginEntity {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 }

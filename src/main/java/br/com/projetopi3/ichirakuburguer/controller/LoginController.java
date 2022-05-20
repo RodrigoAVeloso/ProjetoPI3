@@ -52,6 +52,7 @@ public class LoginController {
 		LoginDto login = new LoginDto();
 		login.setUsuario(usuario.getUsuario());
 		login.setSenha(usuario.getSenha());
+		login.setAdmin(usuario.isAdministrador());
 		service.salvarLogin(login);
 		return true;
 	}
