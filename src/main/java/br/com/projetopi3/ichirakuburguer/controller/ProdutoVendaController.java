@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -50,6 +51,7 @@ public class ProdutoVendaController {
 
 
     @PostMapping("/produtos/novo")
+    @PreAuthorize("hasRole('ADMIN')")
     public ModelAndView novoProduto(@Valid ProdutoVendaDto produto, BindingResult br, ProdutoEstoqueDto produtoDto){
     	System.out.println(produto);
     	if (br.hasErrors()) {
@@ -63,9 +65,10 @@ public class ProdutoVendaController {
         return new ModelAndView("redirect:/produtos/todos");
     }
 
-    @GetMapping("/excluirprodutovenda")
+    @GetMapping("/produtos/excluir")
+    @PreAuthorize("hasRole('ADMIN')")
     public String excluiProduto(@RequestParam Integer codigo){
         service.deletarProduto(codigo);
-        return "redirect:/todosprodutos";
+        return "redirect:/produtos/todos";
     }
 }

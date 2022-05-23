@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +40,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/funcionarios/novo")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ModelAndView novoUsuario(@Valid UsuarioDto usuario, BindingResult br) {
 		
 		if(br.hasErrors()) {
@@ -55,6 +57,7 @@ public class UsuarioController {
 	}
 	
 	 @GetMapping("/excluirusuario")
+	 @PreAuthorize("hasRole('ADMIN')")
 	    public String excluiProduto(@RequestParam Integer id){
 	        service.deletarUsuario(id);
 	        return "redirect:/funcionarios/todos";

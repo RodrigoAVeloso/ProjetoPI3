@@ -1,15 +1,9 @@
 package br.com.projetopi3.ichirakuburguer.controller;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetopi3.ichirakuburguer.dto.LoginDto;
@@ -22,30 +16,23 @@ public class LoginController {
 	@Autowired
 	LoginService service;
 	
-	@GetMapping("/")
+	@GetMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView("login.html");
 		return mv;
 	}
 	
-	@PostMapping("/login")
-	public String procurarLogin(@Valid LoginDto login, BindingResult br) {
-		if (br.hasErrors()) {
-			return "login";
-		} else {
-		List<LoginDto> logins = service.pegarTodos();
-		System.out.println(logins.toString());
-		for(LoginDto dto : logins) {
-			if(login.getUsuario().equals(dto.getUsuario())  && login.getSenha().equals(dto.getSenha())){
-				return "redirect:/menu";
-			}
-		}
-		return "login";
-		
-		}
-			
-		
-	}
+	/*
+	 * @PostMapping("/login") public String procurarLogin(@Valid LoginDto login,
+	 * BindingResult br) { if (br.hasErrors()) { return "login"; } else {
+	 * List<LoginDto> logins = service.pegarTodos();
+	 * System.out.println(logins.toString()); for(LoginDto dto : logins) {
+	 * if(login.getUsuario().equals(dto.getUsuario()) &&
+	 * login.getSenha().equals(dto.getSenha())){ return "redirect:/v1/menu"; } }
+	 * return "login";
+	 * 
+	 * } }
+	 */
 	
 	@Transactional
 	public boolean salvarLogin(UsuarioDto usuario) {

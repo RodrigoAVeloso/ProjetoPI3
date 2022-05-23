@@ -53,7 +53,7 @@ public class ProdutoEstoqueController {
         return new ModelAndView("redirect:/estoque/todos");
     }
 
-    @GetMapping("/excluirproduto")
+    @GetMapping("/estoque/excluir")
     public String excluiProduto(@RequestParam Integer codigo){
         service.deletarProduto(codigo);
         return "redirect:/estoque/todos";

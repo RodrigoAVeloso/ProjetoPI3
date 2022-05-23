@@ -7,13 +7,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MenuController {
 	
-	@GetMapping("/menu")
+	@GetMapping("menu")
 	public ModelAndView menu() {
 		ModelAndView mv = new ModelAndView("index.html");
 		return mv;
 	}
 	
-	@GetMapping("/produtos")
+	@GetMapping("produtos")
 	public ModelAndView menuProduto() {
 		ModelAndView mv = new ModelAndView("produto/produtomenu.html");
 		return mv;

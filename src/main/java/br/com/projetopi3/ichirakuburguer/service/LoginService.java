@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.com.projetopi3.ichirakuburguer.data.LoginEntity;
@@ -12,7 +15,7 @@ import br.com.projetopi3.ichirakuburguer.dto.LoginDto;
 import br.com.projetopi3.ichirakuburguer.repository.LoginRepository;
 
 @Service
-public class LoginService {
+public class LoginService implements UserDetailsService {
 	
 	@Autowired
 	LoginRepository repository;
@@ -35,5 +38,14 @@ public class LoginService {
 		}
 		return loginsDto;
 	
+	}
+	
+	
+
+	@Override
+	public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
+		
+		return repository.findByUsuario(usuario);
+		
 	}
 }
