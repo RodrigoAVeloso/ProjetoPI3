@@ -27,7 +27,7 @@ public class LoginEntity implements UserDetails {
 	@Column(nullable = false)
 	private String usuario;
 	
-	@Size(min=4, max=30)
+	@Size(min=4)
 	@Column(nullable = false)
 	private String senha;
 	

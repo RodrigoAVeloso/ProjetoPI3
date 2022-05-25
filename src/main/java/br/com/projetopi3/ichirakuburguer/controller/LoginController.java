@@ -27,7 +27,7 @@ public class LoginController {
 	public boolean salvarLogin(UsuarioDto usuario) {
 		LoginDto login = new LoginDto();
 		login.setUsuario(usuario.getUsuario());
-		login.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+		login.setSenha(usuario.getSenha());
 		login.setAdmin(usuario.isAdministrador());
 		service.salvarLogin(login);
 		return true;

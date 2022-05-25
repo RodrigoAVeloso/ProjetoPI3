@@ -12,7 +12,7 @@ public class LoginDto {
 	private String usuario;
 	
 	@NotNull
-	@Size(min=4, max=30)
+	@Size(min=4)
 	private String senha;
 	
 	@NotNull
