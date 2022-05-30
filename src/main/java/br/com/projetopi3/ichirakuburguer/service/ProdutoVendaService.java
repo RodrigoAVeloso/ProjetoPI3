@@ -2,6 +2,7 @@ package br.com.projetopi3.ichirakuburguer.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -41,5 +42,21 @@ public class ProdutoVendaService {
 	@Transactional
 	public void deletarProduto(Integer codigo) {
 		repository.deleteById(codigo);
+	}
+	
+	public ProdutoVendaDto encontrarPorCodigo(Integer codigo) {
+		Optional<ProdutoVendaEntity> optional = this.repository.findById(codigo);
+		
+		if(optional.isPresent()) {
+			ProdutoVendaEntity produto = optional.get();
+			ProdutoVendaDto dto = new ProdutoVendaDto();
+			BeanUtils.copyProperties(produto, dto);
+			return dto;
+			
+		}
+		else {
+            return null;
+        }
+	
 	}
 }

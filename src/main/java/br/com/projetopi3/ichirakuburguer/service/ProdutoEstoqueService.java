@@ -2,6 +2,7 @@ package br.com.projetopi3.ichirakuburguer.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +45,19 @@ public class ProdutoEstoqueService {
     public void deletarProduto(Integer codigo){
         repository.deleteById(codigo);
     }
+    
+    public ProdutoEstoqueDto encontrarPorCodigo(Integer codigo) {
+		 Optional<ProdutoEstoqueEntity> optional = this.repository.findById(codigo);
+
+	        if (optional.isPresent()) {
+	        	ProdutoEstoqueEntity produto = optional.get();
+
+	        	ProdutoEstoqueDto dto = new ProdutoEstoqueDto();
+	    		BeanUtils.copyProperties(produto, dto);
+	    		return dto;
+	        }
+	        else {
+	            return null;
+	        }
+	}
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragmento :: head('Todos funcionáriosw')}"></head>
+<head th:replace="~{fragmento :: head('Todos funcionários')}"></head>
 <body>
 	<div class="container2">
 		<header th:replace="~{fragmento :: header('Todos os funcionários')}"></header>
@@ -12,20 +12,15 @@
 					<tr>
 						<th scope="col">ID</th>
 						<th scope="col">Nome</th>
-						<th scope="col">E-Mail</th>
-						<th scope="col">Administrador</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="funcionario : ${usuarios}">
 						<th scope="row" th:text="${funcionario.id}">1</th>
 						<td th:text="${funcionario.nome}">Otto</td>
-						<td th:text="${funcionario.email}">@mdo</td>
-						<td th:text="${funcionario.administrador}">@mdo</td>
-						<td><a href="#">Detalhes</a></td>
-						<td><a href="#">Editar</a></td>
+						<td><a class="btn btn-outline-info" th:href="@{/funcionarios/{funcId}(funcId = ${funcionario.id})}">Detalhes</a></td>
 						<td><a th:href="@{/excluirusuario(id=${funcionario.id})}"
-							class="btn btn-danger ml-2">Delete</a></td>
+							class="btn btn-outline-danger">Delete</a></td>
 
 					</tr>
 

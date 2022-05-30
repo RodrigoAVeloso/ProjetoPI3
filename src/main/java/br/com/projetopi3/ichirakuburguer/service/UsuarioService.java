@@ -2,6 +2,7 @@ package br.com.projetopi3.ichirakuburguer.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,21 @@ public class UsuarioService {
 	
 	public void deletarUsuario(Integer id) {
 		repository.deleteById(id);
+	}
+	
+	public UsuarioDto encontrarPorId(Integer id) {
+		 Optional<UsuarioEntity> optional = this.repository.findById(id);
+
+	        if (optional.isPresent()) {
+	        	UsuarioEntity usuario = optional.get();
+
+	        	UsuarioDto dto = new UsuarioDto();
+	    		BeanUtils.copyProperties(usuario, dto);
+	    		return dto;
+	        }
+	        else {
+	            return null;
+	        }
 	}
 	
 }

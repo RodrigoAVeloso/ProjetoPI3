@@ -1,0 +1,41 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmento :: head('Usuários')}"></head>
+
+<body>
+	<div class="container2">
+	
+		<div class="container mt-3">
+			<div class="row">
+				<div class="col-12">
+					<h1>Ichiraku</h1>
+					<h2>Detalhes do funcionario</h2>
+				</div>
+			</div>
+		</div>
+
+
+	<main>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <b>Nome:</b> <span th:text="${funcionario.nome}"></span><br/>
+                    <b>E-mail:</b> <span th:text="${funcionario.email}"></span><br/>
+                    <b>Usuario:</b> <span th:text="${funcionario.usuario}"></span><br/>
+                    <b>Adminitrador:</b> <span th:text="${funcionario.administrador}"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <a class="btn btn-primary" th:href="@{/funcionarios/{funcionarioId}/edit(professorId = ${funcionario.id})}">Editar</a> 
+                    <a class="btn btn-primary" href="/funcionarios/todos">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+	</div>
+</body>
+</html>

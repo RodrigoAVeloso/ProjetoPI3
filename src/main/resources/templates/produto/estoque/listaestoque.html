@@ -24,18 +24,13 @@
 							<tr>
 								<th scope="col">Código</th>
 								<th scope="col">Nome do produto</th>
-								<th scope="col">Quantidade</th>
-								<th scope="col">Custo</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:each="item : ${produtos}">
 								<th scope="row" th:text="${item.Codigo}">1</th>
 								<td th:text="${item.produtoNome}">Otto</td>
-								<td th:text="${item.qtd}">@mdo</td>
-								<td th:text="${item.preco}">@mdo</td>
-								<td><a href="#">Detalhes</a></td>
-								<td><a href="#">Editar</a></td>
+								<td><a class="btn btn-outline-info" th:href="@{/estoque/{codigo}(codigo = ${item.Codigo})}">Detalhes</a></td>
 								<td><a th:href="@{/estoque/excluir(codigo=${item.Codigo})}"
 									class="btn btn-danger ml-2">Delete</a></td>
 							</tr>

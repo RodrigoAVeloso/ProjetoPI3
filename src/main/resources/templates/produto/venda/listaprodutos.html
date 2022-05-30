@@ -28,8 +28,7 @@
 					<tr th:each="item : ${produtos}">
 						<td th:text="${item.nome}">Otto</td>
 						<td th:text="${item.preco}">@mdo</td>
-						<td><a href="#">Detalhes</a></td>
-						<td><a href="#">Editar</a></td>
+						<td><a class="btn btn-outline-info" th:href="@{/produtos/{codigo}(codigo = ${item.Codigo})}">Detalhes</a></td>
 						<td><a
 							th:href="@{/produtos/excluir(codigo=${item.Codigo})}"
 							class="btn btn-danger ml-2">Delete</a></td>
