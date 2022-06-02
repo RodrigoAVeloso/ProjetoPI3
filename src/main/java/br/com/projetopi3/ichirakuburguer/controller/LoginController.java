@@ -1,7 +1,6 @@
 package br.com.projetopi3.ichirakuburguer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,5 +31,13 @@ public class LoginController {
 		service.salvarLogin(login);
 		return true;
 	}
+	
+	/*
+	 * @Transactional public boolean editarLogin(UsuarioDto usuario) { LoginDto
+	 * login = service.encontrarPorUsuario(usuario.getUsuario());
+	 * login.setUsuario(usuario.getUsuario()); login.setSenha(usuario.getSenha());
+	 * login.setAdmin(usuario.isAdministrador()); service.salvarLogin(login); return
+	 * true; }
+	 */
 
 }

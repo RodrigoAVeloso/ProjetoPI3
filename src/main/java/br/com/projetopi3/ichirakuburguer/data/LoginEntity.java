@@ -22,7 +22,7 @@ public class LoginEntity implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-		
+	
 	@Size(min=2, max=30)
 	@Column(nullable = false)
 	private String usuario;

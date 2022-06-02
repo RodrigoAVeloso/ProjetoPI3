@@ -7,4 +7,5 @@ import br.com.projetopi3.ichirakuburguer.data.LoginEntity;
 public interface LoginRepository extends JpaRepository<LoginEntity, Integer>{
 	
 	public LoginEntity findByUsuario(String usuario);
+	
 }

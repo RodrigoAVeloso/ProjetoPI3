@@ -1,21 +1,21 @@
 package br.com.projetopi3.ichirakuburguer.dto;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class LoginDto {
 
 	private Integer id;
 	
-	@NotNull
+	@NotBlank
 	@Size(min=2, max=30)
 	private String usuario;
 	
-	@NotNull
+	@NotBlank
 	@Size(min=4)
 	private String senha;
 	
-	@NotNull
+	@NotBlank
 	private boolean admin;
 	
 	public Integer getId() {

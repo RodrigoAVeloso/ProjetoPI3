@@ -77,12 +77,23 @@ public class UsuarioDto {
 	public void setAdministrador(boolean administrador) {
 		this.administrador = administrador;
 	}
+	
+	
+	public void fromFuncionario(UsuarioDto usuario) {
+		this.nome = usuario.getNome();
+		this.email = usuario.getEmail();
+		this.usuario = usuario.getUsuario();
+		this.senha = usuario.getSenha();
+		this.administrador = usuario.isAdministrador();
+	}
 
 	@Override
 	public String toString() {
 		return "UsuarioDto [id=" + id + ", nome=" + nome + ", email=" + email + ", usuario=" + usuario + ", senha="
 				+ senha + ", administrador=" + administrador + "]";
 	}
+
+	
 
 	
 }

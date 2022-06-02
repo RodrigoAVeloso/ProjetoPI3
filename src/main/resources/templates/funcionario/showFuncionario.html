@@ -28,7 +28,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="btn btn-primary" th:href="@{/funcionarios/{funcionarioId}/edit(professorId = ${funcionario.id})}">Editar</a> 
+                    <a class="btn btn-primary" th:href="@{/funcionarios/editar/{funcId}(funcId = ${funcionario.id})}">Editar</a> 
                     <a class="btn btn-primary" href="/funcionarios/todos">Voltar</a>
                 </div>
             </div>

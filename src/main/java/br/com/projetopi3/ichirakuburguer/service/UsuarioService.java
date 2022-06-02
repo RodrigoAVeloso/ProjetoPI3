@@ -41,6 +41,7 @@ public class UsuarioService {
         return usuarioDtoList;
     }
 	
+	@Transactional
 	public void deletarUsuario(Integer id) {
 		repository.deleteById(id);
 	}
