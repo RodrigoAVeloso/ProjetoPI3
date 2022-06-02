@@ -78,10 +78,40 @@ public class ProdutoEstoqueController {
     
     @GetMapping("/estoque/editar/{codigo}")
     public ModelAndView edit(@PathVariable Integer codigo, ProdutoEstoqueDto produto) {
-    	ModelAndView mv = new ModelAndView("/produto/estoque/estoqueEdit");
     	
-    	return mv;
+		if (service.encontrarPorCodigo(codigo) != null) {
+			ProdutoEstoqueDto produtoDto = service.encontrarPorCodigo(codigo);
+			produto.fromEstoque(produtoDto);
+			ModelAndView mv = new ModelAndView("/produto/estoque/estoqueEdit");
+			return mv;
+		} else {
+			return new ModelAndView("redirect:/produtos/todos");
+		}
+
+    }
+    @PostMapping("/estoque/editar/{codigo}")
+    public ModelAndView update(@PathVariable Integer codigo, ProdutoEstoqueDto produto, BindingResult br) {
     	
+    	if(br.hasErrors()){
+    		ProdutoEstoqueDto produtoDto = service.encontrarPorCodigo(codigo);
+    		produto.fromEstoque(produtoDto);
+    		ModelAndView mv = new ModelAndView("/produto/estoque/estoqueEdit");
+    		return mv;
+    	}else {
+    		if(service.encontrarPorCodigo(codigo) != null) {
+    			ProdutoEstoqueDto produtoDto = service.encontrarPorCodigo(codigo);
+    			
+    			produtoDto.setPreco(produto.getPreco());
+    			produtoDto.setProdutoNome(produto.getProdutoNome());
+    			produtoDto.setQtd(produto.getQtd());
+    			
+    			service.salvaProduto(produtoDto);
+    			
+    			return new ModelAndView("redirect:/estoque/" + codigo);
+    		}else {
+    		return new ModelAndView("redirect:/produtos/todos");
+    		}
+    	}
     	
     }
 }

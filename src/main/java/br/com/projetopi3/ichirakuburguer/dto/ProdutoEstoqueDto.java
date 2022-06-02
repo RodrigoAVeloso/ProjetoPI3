@@ -55,6 +55,11 @@ public class ProdutoEstoqueDto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	public void fromEstoque(ProdutoEstoqueDto produto) {
+		this.produtoNome = produto.getProdutoNome();
+		this.qtd = produto.getQtd();
+		this.preco = produto.getPreco();
+	}
 
 	@Override
 	public String toString() {
