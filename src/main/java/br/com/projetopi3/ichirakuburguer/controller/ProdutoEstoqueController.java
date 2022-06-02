@@ -27,7 +27,7 @@ public class ProdutoEstoqueController {
     @GetMapping("/estoque/todos")
     public ModelAndView todosProdutos(ModelMap model) {
         List<ProdutoEstoqueDto> produtos = service.pegarTodos();
-        ModelAndView mv = new ModelAndView("produto/estoque/listaestoque");
+        ModelAndView mv = new ModelAndView("produto/estoque/listaEstoque");
         System.out.println(produtos.toString());
         mv.addObject("produtos", produtos);
 
@@ -37,12 +37,12 @@ public class ProdutoEstoqueController {
 
     @GetMapping("/estoque/novo")
     public ModelAndView criaProduto(ProdutoEstoqueDto produto){
-        ModelAndView mv = new ModelAndView("produto/estoque/novoproduto");
+        ModelAndView mv = new ModelAndView("produto/estoque/novoEstoque");
        return mv;
     }
     
     @GetMapping("/estoque/{codigo}")
-	public ModelAndView show(@PathVariable Integer codigo) {
+	public ModelAndView show(@PathVariable Integer codigo, ProdutoEstoqueDto produtoEstoque) {
 		if (service.encontrarPorCodigo(codigo) != null) {
 			
 			ProdutoEstoqueDto produto = service.encontrarPorCodigo(codigo);
@@ -59,10 +59,10 @@ public class ProdutoEstoqueController {
     }
 
     @PostMapping("/estoque/novo")
-    public ModelAndView novoProduto(@Valid ProdutoEstoqueDto produto, BindingResult br){
+    public ModelAndView novoEstoque(@Valid ProdutoEstoqueDto produto, BindingResult br){
     	System.out.println(produto);
         if(br.hasErrors()) {
-        	ModelAndView mv = new ModelAndView("produto/estoque/novoproduto");
+        	ModelAndView mv = new ModelAndView("produto/estoque/novoEstoque");
         	return mv;
         }
         service.salvaProduto(produto);
@@ -74,5 +74,14 @@ public class ProdutoEstoqueController {
     public String excluiProduto(@RequestParam Integer codigo){
         service.deletarProduto(codigo);
         return "redirect:/estoque/todos";
+    }
+    
+    @GetMapping("/estoque/editar/{codigo}")
+    public ModelAndView edit(@PathVariable Integer codigo, ProdutoEstoqueDto produto) {
+    	ModelAndView mv = new ModelAndView("/produto/estoque/estoqueEdit");
+    	
+    	return mv;
+    	
+    	
     }
 }
