@@ -1,35 +1,35 @@
-package br.com.projetopi3.ichirakuburguer.data;
+package br.com.projetopi3.ichirakuburguer.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "tb_funcionario")
-public class UsuarioEntity {
+import org.springframework.stereotype.Component;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Component
+public class FuncionarioDto {
+	
 	private Integer id;
 	
-	@Column(nullable = false, length = 50)
+	@NotNull
+	@NotBlank
 	private String nome;
-
-	@Column(nullable = false, length = 75)
+	
+	@NotNull
+	@NotBlank
 	private String email;
 	
-	@Column(nullable = false, length = 20)
+	@NotNull
+	@Size(min=2, max=30)
 	private String usuario;
 	
-	@Column(nullable = false)
+	@NotNull
+	@Size(min=4)
 	private String senha;
-
-	@Column(nullable = false)
+	
+	@NotNull
 	private Boolean administrador;
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -77,5 +77,23 @@ public class UsuarioEntity {
 	public void setAdministrador(boolean administrador) {
 		this.administrador = administrador;
 	}
+	
+	
+	public void fromFuncionario(FuncionarioDto usuario) {
+		this.nome = usuario.getNome();
+		this.email = usuario.getEmail();
+		this.usuario = usuario.getUsuario();
+		this.senha = usuario.getSenha();
+		this.administrador = usuario.isAdministrador();
+	}
 
+	@Override
+	public String toString() {
+		return "UsuarioDto [id=" + id + ", nome=" + nome + ", email=" + email + ", usuario=" + usuario + ", senha="
+				+ senha + ", administrador=" + administrador + "]";
+	}
+
+	
+
+	
 }

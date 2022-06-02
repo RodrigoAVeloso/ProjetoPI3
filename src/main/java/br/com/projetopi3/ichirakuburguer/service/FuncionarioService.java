@@ -9,31 +9,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.projetopi3.ichirakuburguer.data.UsuarioEntity;
-import br.com.projetopi3.ichirakuburguer.dto.UsuarioDto;
-import br.com.projetopi3.ichirakuburguer.repository.UsuarioRepository;
+import br.com.projetopi3.ichirakuburguer.data.FuncionarioEntity;
+import br.com.projetopi3.ichirakuburguer.dto.FuncionarioDto;
+import br.com.projetopi3.ichirakuburguer.repository.FuncionarioRepository;
 
 @Service
-public class UsuarioService {
+public class FuncionarioService {
 	
 	@Autowired(required = true)
-	private UsuarioRepository repository;
+	private FuncionarioRepository repository;
 	
 	
 	@Transactional
-    public boolean salvaFuncionario(UsuarioDto usuario){
-        UsuarioEntity entity = new UsuarioEntity();
+    public boolean salvaFuncionario(FuncionarioDto usuario){
+        FuncionarioEntity entity = new FuncionarioEntity();
         BeanUtils.copyProperties(usuario, entity);
         System.out.println(entity);
         repository.save(entity);
         return true;
     }
 	
-	public List<UsuarioDto> pegarTodos(){
-        List<UsuarioEntity> usuarios = repository.findAll();
-        List<UsuarioDto> usuarioDtoList = new ArrayList<UsuarioDto>();
-        for(UsuarioEntity usuario : usuarios){
-            UsuarioDto dto = new UsuarioDto();
+	public List<FuncionarioDto> pegarTodos(){
+        List<FuncionarioEntity> usuarios = repository.findAll();
+        List<FuncionarioDto> usuarioDtoList = new ArrayList<FuncionarioDto>();
+        for(FuncionarioEntity usuario : usuarios){
+            FuncionarioDto dto = new FuncionarioDto();
             BeanUtils.copyProperties(usuario, dto);
             usuarioDtoList.add(dto);
         }
@@ -46,13 +46,13 @@ public class UsuarioService {
 		repository.deleteById(id);
 	}
 	
-	public UsuarioDto encontrarPorId(Integer id) {
-		 Optional<UsuarioEntity> optional = this.repository.findById(id);
+	public FuncionarioDto encontrarPorId(Integer id) {
+		 Optional<FuncionarioEntity> optional = this.repository.findById(id);
 
 	        if (optional.isPresent()) {
-	        	UsuarioEntity usuario = optional.get();
+	        	FuncionarioEntity usuario = optional.get();
 
-	        	UsuarioDto dto = new UsuarioDto();
+	        	FuncionarioDto dto = new FuncionarioDto();
 	    		BeanUtils.copyProperties(usuario, dto);
 	    		return dto;
 	        }

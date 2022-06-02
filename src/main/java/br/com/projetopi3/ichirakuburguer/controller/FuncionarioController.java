@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetopi3.ichirakuburguer.dto.LoginDto;
-import br.com.projetopi3.ichirakuburguer.dto.UsuarioDto;
+import br.com.projetopi3.ichirakuburguer.dto.FuncionarioDto;
 import br.com.projetopi3.ichirakuburguer.service.LoginService;
-import br.com.projetopi3.ichirakuburguer.service.UsuarioService;
+import br.com.projetopi3.ichirakuburguer.service.FuncionarioService;
 
 @Controller
-public class UsuarioController {
+public class FuncionarioController {
 	
 	@Autowired
-	UsuarioService service;
+	FuncionarioService service;
 	
 	@Autowired
 	LoginService serviceLogin;
@@ -32,20 +32,20 @@ public class UsuarioController {
 	
 	@GetMapping("/funcionarios/todos")
 	public ModelAndView todosFuncionarios(){
-		List<UsuarioDto> usuarios = service.pegarTodos();
+		List<FuncionarioDto> usuarios = service.pegarTodos();
 		ModelAndView mv = new ModelAndView("funcionario/todosFuncionarios");
 		mv.addObject("usuarios", usuarios);
 		return mv;
 	}
 	
 	@GetMapping("/funcionarios/novo")
-	public ModelAndView criarFuncionario(UsuarioDto usuario) {
+	public ModelAndView criarFuncionario(FuncionarioDto usuario) {
 		ModelAndView mv = new ModelAndView("funcionario/novoFuncionario");
 		return mv;
 	}
 	
 	@GetMapping("/funcionarios/{id}")
-	public ModelAndView show(@PathVariable Integer id, UsuarioDto funcionario) {
+	public ModelAndView show(@PathVariable Integer id, FuncionarioDto funcionario) {
 		if (service.encontrarPorId(id) != null) {
 			
 			funcionario = service.encontrarPorId(id);
@@ -59,7 +59,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/funcionarios/novo")
-	public ModelAndView novoUsuario(@Valid UsuarioDto usuario, BindingResult br) {
+	public ModelAndView novoFuncionario(@Valid FuncionarioDto usuario, BindingResult br) {
 		
 		if(br.hasErrors()) {
 			System.out.println();
@@ -76,17 +76,17 @@ public class UsuarioController {
 	
 	 @GetMapping("/excluirusuario")
 	    public String excluiProduto(@RequestParam Integer id){
-		 	UsuarioDto usuario = service.encontrarPorId(id);
+		 	FuncionarioDto usuario = service.encontrarPorId(id);
 		 	serviceLogin.deletarLogin(usuario.getUsuario());
 	        service.deletarUsuario(id);
 	        return "redirect:/funcionarios/todos";
 	    }
 	 
 	 @GetMapping("/funcionarios/editar/{id}")
-	 public ModelAndView editar(@PathVariable Integer id, UsuarioDto usuario) {
+	 public ModelAndView editar(@PathVariable Integer id, FuncionarioDto usuario) {
 
 			if (service.encontrarPorId(id) != null) {
-				UsuarioDto funcionario = service.encontrarPorId(id);
+				FuncionarioDto funcionario = service.encontrarPorId(id);
 				usuario.fromFuncionario(funcionario);
 				ModelAndView mv = new ModelAndView("funcionario/editarFuncionario");
 				return mv;
@@ -97,10 +97,10 @@ public class UsuarioController {
 		}
 	 
 	 @PostMapping("/funcionarios/editar/{id}")
-	 public ModelAndView update(@PathVariable Integer id, @Valid UsuarioDto usuario, BindingResult br) {
+	 public ModelAndView update(@PathVariable Integer id, @Valid FuncionarioDto usuario, BindingResult br) {
 		 
 		 if(br.hasErrors()) {
-				UsuarioDto funcionario = service.encontrarPorId(id);
+				FuncionarioDto funcionario = service.encontrarPorId(id);
 				usuario.fromFuncionario(funcionario);
 				ModelAndView mv = new ModelAndView("funcionario/editarFuncionario");
 				return mv;
@@ -108,7 +108,7 @@ public class UsuarioController {
 			
 				if (service.encontrarPorId(id) != null) {
 					
-					UsuarioDto funcionario = service.encontrarPorId(id);
+					FuncionarioDto funcionario = service.encontrarPorId(id);
 					LoginDto login = serviceLogin.encontrarPorUsuario(usuario.getUsuario());
 					login.setUsuario(usuario.getUsuario());
 					login.setSenha(usuario.getSenha());

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.projetopi3.ichirakuburguer.dto.LoginDto;
-import br.com.projetopi3.ichirakuburguer.dto.UsuarioDto;
+import br.com.projetopi3.ichirakuburguer.dto.FuncionarioDto;
 import br.com.projetopi3.ichirakuburguer.service.LoginService;
 
 @Controller
@@ -23,7 +23,7 @@ public class LoginController {
 	}
 	
 	@Transactional
-	public boolean salvarLogin(UsuarioDto usuario) {
+	public boolean salvarLogin(FuncionarioDto usuario) {
 		LoginDto login = new LoginDto();
 		login.setUsuario(usuario.getUsuario());
 		login.setSenha(usuario.getSenha());
