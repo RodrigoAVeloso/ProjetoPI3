@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,6 +22,7 @@ import br.com.projetopi3.ichirakuburguer.service.ProdutoEstoqueService;
 import br.com.projetopi3.ichirakuburguer.service.ProdutoVendaService;
 
 @Controller
+@RequestMapping("/produtos")
 public class ProdutoVendaController {
 
     @Autowired(required = true)
@@ -29,10 +31,10 @@ public class ProdutoVendaController {
     @Autowired(required = true)
     ProdutoEstoqueService servicePe;
 
-    @GetMapping("/produtos/todos")
+    @GetMapping("/todos")
     public ModelAndView todosProdutos(ModelMap model) {
         List<ProdutoVendaDto> produtos = service.todosProdutos();
-        ModelAndView mv = new ModelAndView("produto/venda/listaprodutos");
+        ModelAndView mv = new ModelAndView("produto/venda/listaProdutos");
         System.out.println(produtos.toString());
         mv.addObject("produtos", produtos);
        
@@ -41,17 +43,17 @@ public class ProdutoVendaController {
     }
 
 
-    @GetMapping("/produtos/novo")
+    @GetMapping("/novo")
     public ModelAndView criaProduto(ProdutoVendaDto produto, ProdutoEstoqueDto produtoDto){
     	List<ProdutoEstoqueDto> produtosEstoque = servicePe.pegarTodos();
-        ModelAndView mv = new ModelAndView("produto/venda/novoprodutovenda");
+        ModelAndView mv = new ModelAndView("produto/venda/novoProduto");
         mv.addObject("produtosEstoque", produtosEstoque);
        return mv;
     }
 
     
-    @GetMapping("/produtos/{codigo}")
-    public ModelAndView show(@PathVariable Integer codigo) {
+    @GetMapping("/{codigo}")
+    public ModelAndView show(@PathVariable Integer codigo, ProdutoVendaDto produtoVenda) {
     	if (service.encontrarPorCodigo(codigo) != null) {
 			
     		ProdutoVendaDto produto = service.encontrarPorCodigo(codigo);
@@ -65,11 +67,11 @@ public class ProdutoVendaController {
 		}
     }
 
-    @PostMapping("/produtos/novo")
+    @PostMapping("/novo")
     public ModelAndView novoProduto(@Valid ProdutoVendaDto produto, BindingResult br, ProdutoEstoqueDto produtoDto){
     	System.out.println(produto);
     	if (br.hasErrors()) {
-			ModelAndView mv = new ModelAndView("produto/venda/novoprodutovenda");
+			ModelAndView mv = new ModelAndView("produto/venda/novoProduto");
 			
 			return mv;
 		}
@@ -79,9 +81,50 @@ public class ProdutoVendaController {
         return new ModelAndView("redirect:/produtos/todos");
     }
 
-    @GetMapping("/produtos/excluir")
+    @GetMapping("/excluir")
     public String excluiProduto(@RequestParam Integer codigo){
         service.deletarProduto(codigo);
         return "redirect:/produtos/todos";
+    }
+    
+    @GetMapping("/editar/{codigo}")
+    public ModelAndView editar(@PathVariable Integer codigo, ProdutoVendaDto produtoVenda, BindingResult br) {
+    	
+    	if (service.encontrarPorCodigo(codigo) != null) {
+    		ProdutoVendaDto produtoDto = service.encontrarPorCodigo(codigo);
+    		produtoVenda.fromProduto(produtoDto);
+    		ModelAndView mv = new ModelAndView("produto/venda/editarProduto");
+        	return mv;
+		}
+    	return new ModelAndView("redirect:/produtos/todos");
+    	
+    }
+    @PostMapping("/editar/{codigo}")
+    public ModelAndView update(@PathVariable Integer codigo, ProdutoVendaDto produtoVenda, BindingResult br) {
+    	
+    	if(br.hasErrors()) {
+    		ProdutoVendaDto produtoDto = service.encontrarPorCodigo(codigo);
+    		produtoVenda.fromProduto(produtoDto);
+    		ModelAndView mv = new ModelAndView("produto/venda/editarProduto");
+    		return mv;
+    	}
+    	 
+    	 if (service.encontrarPorCodigo(codigo) != null) {
+    		 ProdutoVendaDto produtoDto = service.encontrarPorCodigo(codigo);
+    		 
+    		 produtoDto.setDescricao(produtoVenda.getDescricao());
+    		 produtoDto.setNome(produtoVenda.getNome());
+    		 produtoDto.setPreco(produtoVenda.getPreco());
+    		 
+    		 
+    		 System.out.println();
+    		 System.out.println("Produto salvo" + produtoDto);
+    		 System.out.println();
+    		 service.salvarProduto(produtoDto);
+    		 
+    		 return new ModelAndView("redirect:/produtos/" + produtoVenda.getCodigo());
+    	 }else {
+    	return new ModelAndView("redirect:/produtos/todos");
+    	 }
     }
 }

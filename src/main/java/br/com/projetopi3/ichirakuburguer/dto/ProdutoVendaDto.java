@@ -61,6 +61,13 @@ public class ProdutoVendaDto {
 	public List<ProdutoEstoqueDto> getProdutoEstoqueList(){
 		return produtoEstoqueList;
 	}
+	
+	public void fromProduto(ProdutoVendaDto produto) {
+		this.descricao = produto.getDescricao();
+		this.nome = produto.getNome();
+		this.preco = produto.getPreco();
+		
+	}
 
 	@Override
 	public String toString() {

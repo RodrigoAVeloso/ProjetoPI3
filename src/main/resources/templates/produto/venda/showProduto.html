@@ -27,7 +27,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a class="btn btn-primary" href="#">Editar</a>
+                    <a class="btn btn-primary" th:href="@{/produtos/editar/{codigo} (codigo = ${produtoVendaDto.codigo})}">Editar</a>
                     <a class="btn btn-primary" href="/produtos/todos">Voltar</a>
                 </div>
             </div> 

@@ -16,7 +16,7 @@
 
 		<div class="container" style="padding-top: 40px">
 			<div class="row">
-				<form th:object="${funcionarioDto}" th:action="@{/funcionarios/editar/{funcId} (funcId = ${usuarioDto.id})}"
+				<form th:object="${funcionarioDto}" th:action="@{/funcionarios/editar/{funcId} (funcId = ${funcionarioDto.id})}"
 					method="post">
 
 					<div class="row">
@@ -64,7 +64,7 @@
 
 					<div style="padding-top: 20px">
 						<button class="btn btn-primary" type="submit">Cadastrar</button>
-						<a class="btn btn-primary" th:href="@{/funcionarios/{funcId}(funcId = ${usuarioDto.id})}">Voltar</a>
+						<a class="btn btn-primary" th:href="@{/funcionarios/{funcId}(funcId = ${funcionarioDto.id})}">Voltar</a>
 					</div>
 
 				</form>

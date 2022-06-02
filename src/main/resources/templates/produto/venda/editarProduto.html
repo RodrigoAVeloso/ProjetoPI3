@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmento :: head('Cadastro de Produto')}"></head>
+<body>
+	<div class="container2">
+
+		<div class="container mt-3">
+			<div class="row">
+				<div class="col-12">
+					<h1>Ichiraku</h1>
+					<h2>Cadastro de produto</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" style="padding-top: 40px">
+			<div class="row">
+				<form th:object="${produtoVendaDto}" th:action="@{/produtos/editar/{codigo} (codigo = ${produtoVendaDto.codigo})}"
+					method="post">
+					<div class="row">
+
+
+						<div class="col">
+							<label class="form-label">Nome do Produto</label> <input
+								class="form-control" type="text" th:errorclass="is-invalid" th:field="*{nome}">
+								<div class="invalid-feedback" th:errors="*{nome}"></div>
+						</div>
+					</div>
+
+					<div class="input">
+						<label class="form-label">Descrição</label> <input
+							class="form-control" type="text" th:errorclass="is-invalid" th:field="*{descricao}">
+							<div class="invalid-feedback" th:errors="*{descricao}"></div>
+						<div></div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<label class="form-label">preco</label> <input
+								class="form-control" type="text" th:errorclass="is-invalid" th:field="*{preco}">
+								<div class="invalid-feedback" th:errors="*{preco}"></div>
+						</div>
+					</div>
+
+					<div style="padding-top: 20px">
+						<button class="btn btn-primary" type="submit">Salvar</button>
+						<a th:href="@{/produtos/todos}" class="btn btn-primary">Voltar</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
